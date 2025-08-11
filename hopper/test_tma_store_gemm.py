@@ -65,13 +65,13 @@ def matmul_tma_load_store(  #
 ])
 def test_tma_load_store(M, N, K, NUM_CTAS, NUM_WARPS, TRANS_A, TRANS_B, OUTPUT_F16):
     if (TRANS_A):
-        a = torch.randn((K, M), device='cuda', dtype=torch.float16).T
+        a = torch.randn((K, M), device='npu', dtype=torch.float16).T
     else:
-        a = torch.randn((M, K), device='cuda', dtype=torch.float16)
+        a = torch.randn((M, K), device='npu', dtype=torch.float16)
     if (TRANS_B):
-        b = torch.randn((N, K), device='cuda', dtype=torch.float16).T
+        b = torch.randn((N, K), device='npu', dtype=torch.float16).T
     else:
-        b = torch.randn((K, N), device='cuda', dtype=torch.float16)
+        b = torch.randn((K, N), device='npu', dtype=torch.float16)
 
     c = torch.empty((M, N), device=a.device, dtype=torch.float32)
     if OUTPUT_F16:

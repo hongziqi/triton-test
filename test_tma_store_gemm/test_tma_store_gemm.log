@@ -1,0 +1,41 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 8 items
+
+hopper/test_tma_store_gemm.py::test_tma_load_store[64-64-16-1-4-False-True-False] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/PwolxeD5yrr9osxem7qyU-ge59HFcOURVhMXuOzf1zk
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/5x83cfSATa6vL2SyhADENN72Kt56MPxNzLQO6RaaG4U
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[64-64-16-1-4-False-True-True] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/jDqrs9EwhomWdN0wYHTJrsEuEtpjzmqyvZyCtxGn3Eo
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/r0cKRoBX_m5vsGAya4IJbmQG1K1e16eUY3_vbuvOCEQ
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[128-64-32-1-4-False-True-False] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/XyWYdEjFwZe51n4ezvlUqVPz3nFRyY1XGvsrHQ4cFR4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/5x83cfSATa6vL2SyhADENN72Kt56MPxNzLQO6RaaG4U
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[128-64-32-1-4-False-True-True] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/igeWFba3Tme7rWcqT0ngQrBlvthRmw13NaS9zl78i2o
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/r0cKRoBX_m5vsGAya4IJbmQG1K1e16eUY3_vbuvOCEQ
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[64-128-32-1-4-False-True-False] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/Hyj4Kt0ntIz3zJAOsgXzJLEMiDqAMGmuS-fiaiJOr7Q
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/5x83cfSATa6vL2SyhADENN72Kt56MPxNzLQO6RaaG4U
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[64-128-32-1-4-False-True-True] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/M8bFoXtyXe_k9CVA0O4YnHFYDMS_SUDvjoiMI1xCC6U
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/r0cKRoBX_m5vsGAya4IJbmQG1K1e16eUY3_vbuvOCEQ
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[128-128-64-1-4-False-True-False] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/3sgnMmKLmcviIUkwIRtCMaOjiN52Rq53WiI4gJavy_o
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/5x83cfSATa6vL2SyhADENN72Kt56MPxNzLQO6RaaG4U
+PASSED
+hopper/test_tma_store_gemm.py::test_tma_load_store[128-128-64-1-4-False-True-True] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/BwKWQ8dQLp26a-pS2bHwL0490m2wqb8cch58M348Yq0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/r0cKRoBX_m5vsGAya4IJbmQG1K1e16eUY3_vbuvOCEQ
+PASSED
+
+======================== 8 passed in 152.93s (0:02:32) =========================
