@@ -4651,8 +4651,8 @@ def test_inline_asm_packed(num_ctas, device):
 
 @pytest.mark.parametrize('num_ctas', num_ctas_list)
 def test_inline_asm_with_pointers(num_ctas, device):
-    if not is_cuda():
-        pytest.skip('test_inline_asm is only supported in CUDA')
+    # if not is_cuda():
+    #     pytest.skip('test_inline_asm is only supported in CUDA')
 
     @triton.jit
     def kernel(X, Y, BLOCK: tl.constexpr):
