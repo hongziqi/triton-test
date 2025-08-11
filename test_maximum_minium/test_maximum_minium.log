@@ -1,0 +1,1343 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 24 items
+
+language/test_standard.py::test_maximum_minium[maximum-int8] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/Uo2fLyQy2Ws2hKfqVW8J3ZJTcLncurFgQuSpSAd8qcY
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/HjM41PmXCEDZIQYkZCcBTh3qxcpOdm0Rb2TMm4f-WOI
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/kN_cCKGOEpl1Z1ZV2Ff9qsKHuch0v1R8hksvATrhW7s
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eUAyfCx0qxTkIXDXgXyposVPKw787VEQAHed7rAUsQo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/UU9iKo_tgY4cGNM6noSJTfrwZheA8QSp0vcHHd04KrU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/HjM41PmXCEDZIQYkZCcBTh3qxcpOdm0Rb2TMm4f-WOI
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/jm4LvdLuUkwrN1OnM5tDFZ1AufWi4Y_dcRqRWvIvqdE
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/HjM41PmXCEDZIQYkZCcBTh3qxcpOdm0Rb2TMm4f-WOI
+PASSED
+language/test_standard.py::test_maximum_minium[maximum-int16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/ezcXx45Z1nJJ9zUV39JZKNELzYaxWaJoIylhIZb31Ws
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/VXZYsHVBHCjsuzFsW7EhjT_PZLyHtIJ-j74xoLI1Wns
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/kytJ_Vf55S3cKVG74ukrrwJwiTx-pO2Qhb-1rc7wrVg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/Qlp4mSRrCMYbtjp-xkTnfeWVJFNHlG2vIX3_pj2W25o
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/09bRCxkmBYLkCgQEipC8ni_EcsAqGjzVXKMujOh2qL0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/VXZYsHVBHCjsuzFsW7EhjT_PZLyHtIJ-j74xoLI1Wns
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/nglNmLJSiHoVHufHPfpFSHor1OEvNVJFHxbOor5SaP4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/VXZYsHVBHCjsuzFsW7EhjT_PZLyHtIJ-j74xoLI1Wns
+PASSED
+language/test_standard.py::test_maximum_minium[maximum-int32] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/EIBdo7jTRiiSqw2uckMYg_mG3gy6FEGiTxMOTYKCEO8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/OnW8GPm4y_XufPcs0oQrLP96Krj3vfSWHobvAFxBIMw
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/IWNUhcMzmJEWnNqQweIb1BeFduw3yAk2PA7kIf1cGDs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/dmsjrY8nCgSCT_9PPHPtnH2BZTKaIjDWZyC7ZXq-6B8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/OnW8GPm4y_XufPcs0oQrLP96Krj3vfSWHobvAFxBIMw
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/FyeRgcYd1pDGuzLuw0HJcKujxu6xXlsJduVMyCfYGL4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/OnW8GPm4y_XufPcs0oQrLP96Krj3vfSWHobvAFxBIMw
+PASSED
+language/test_standard.py::test_maximum_minium[maximum-int64] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/-luv-jTVW6SzsFdNOCvVWM7XkfiZHhJnL8WqB1jPE5A
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DWct2eiYyVawze38J07lCwMv954znaEQJwZ0Pc4QMC4
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/eDBDjzincF_k9Uvnq4f9MQlAqTbZSDC3iXG_6y7kN8c
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/7LDy0Qe2jOTOG7dkiwia2sUR2Xj9WowcWM5ZdAufeTs
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/pv4nJOlT1GmzbatF_tmJEmOkZ6jb7m7LI_-eO0Xxa30
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DWct2eiYyVawze38J07lCwMv954znaEQJwZ0Pc4QMC4
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/3Wr73xOU5H2Mda4OA3xUhvtQ0LFJEFQPeQbv2mWJJYo
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DWct2eiYyVawze38J07lCwMv954znaEQJwZ0Pc4QMC4
+PASSED
+language/test_standard.py::test_maximum_minium[maximum-uint8] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/ErJy9BaDseAMfOUw18Ag2IxB1_WQuVGnwDOXxtdUMAU
+FAILED
+language/test_standard.py::test_maximum_minium[maximum-uint16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/BaUFJ3SXMVWrPquAj6wWAlzrTMolvjleDerslAcAGmA
+FAILED
+language/test_standard.py::test_maximum_minium[maximum-uint32] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/pe329fM0Cz0Twp7E_BqFhzhr7czdmurMo951ZwLLMuw
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/SWpxhmmXKCithqMcSanl6ffvOG4ALttV5X2On0yqa0k
+FAILED
+language/test_standard.py::test_maximum_minium[maximum-uint64] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/ayyJABrhfHRcHZ0g-rO-cmNNp6gCwIDS1HpXXXKi85E
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/9u8KKykXan4AK49BU4kfxrli50nJIYNdmol8-z8n3K4
+FAILED
+language/test_standard.py::test_maximum_minium[maximum-float16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/VdVsCGNr1cJwxP91N1g3eQPszTfZvfSoXTv6W5aykS8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/hFkeGtljuXCWRew5KDq3EELB1Sw1CgogUloqS6JP1Xo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/w_CQ1FLj6SUCFSc_bi60y_xPY6yM8puevoelin24LwI
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/LtGZa9rqtgp58aH6ZizK2E2FRn_C_3o7ITZRhgfURcU
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/DNLR4pnaj3ujuUmqOI5-Ho65I2vOgx9Mt9dyecVMuiM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/hFkeGtljuXCWRew5KDq3EELB1Sw1CgogUloqS6JP1Xo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/6d1KCMZeCNhxsMpTedW5snOzNGDsP8IpdjaLy8CqSPw
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/hFkeGtljuXCWRew5KDq3EELB1Sw1CgogUloqS6JP1Xo
+PASSED
+language/test_standard.py::test_maximum_minium[maximum-float32] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/DYMQDD5oEFr8hCCMZu2XPBUXrNgirjPPSYgSzINnr4o
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mowkVqjXJbVkXYnx6gRbFtLsZvbW05UiDZmPnLIMvwo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/nVcHImyYBOhqQff8-dZxm6kH5A2YWlp9xWrg0d9W4hE
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/PUdSvnLD3v5FhNzjl1xjTuKF3eBq2VtohbLk51lLzYM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mowkVqjXJbVkXYnx6gRbFtLsZvbW05UiDZmPnLIMvwo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/sQeuCEEFcQd_D1hZYlT9iV7mF4tkCu9FR9zIEJElsV8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mowkVqjXJbVkXYnx6gRbFtLsZvbW05UiDZmPnLIMvwo
+PASSED
+language/test_standard.py::test_maximum_minium[maximum-float64] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+FAILED
+language/test_standard.py::test_maximum_minium[maximum-bfloat16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/HHei4Monk89uNMSfSY_lbc52CyXYcRvMyOgr7Aq1Fik
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/5IvCAI5jxNQi0s-bBtArKMsI0srdI1X3nL0z-tIkXLY
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/Zkn32KrFBnVHfn6vKF7e4tJyGwWjJYNRAK3jDY8ow90
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/_tWuy7VCLrTHLvpbfNwF0-kifY6tDx0asVTpVjKlJPg
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/SYHw_WtWzBRVKxc780PFUG97FPiAsH8MZAczAmwMEK0
+FAILED
+language/test_standard.py::test_maximum_minium[minimum-int8] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/dEl2O-xEcpXPl_wbQpe9LGoj9ReA4J8pRwniV-AuCGs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/HjM41PmXCEDZIQYkZCcBTh3qxcpOdm0Rb2TMm4f-WOI
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/DRsaSYCDm8frldUnnPnBJjexhf2OeX2-is2tLXD3BsA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eUAyfCx0qxTkIXDXgXyposVPKw787VEQAHed7rAUsQo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/OkYftiT8Ef2JnBEn9geAMAVhOz4QwJNJddda4k5XdgE
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/HjM41PmXCEDZIQYkZCcBTh3qxcpOdm0Rb2TMm4f-WOI
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/AEydilfNMzX9EHqLqe3F5dBCzHkKNvgGNCHZq7c-dVs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/HjM41PmXCEDZIQYkZCcBTh3qxcpOdm0Rb2TMm4f-WOI
+PASSED
+language/test_standard.py::test_maximum_minium[minimum-int16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/wrr3XAyCXuF2ahL26p64rVhoFIMxR4I7M96AcRkAJ5c
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/VXZYsHVBHCjsuzFsW7EhjT_PZLyHtIJ-j74xoLI1Wns
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/SBHCom7_y1OpQVb6dmFg4SSOronpfMLv1LPnYZzpRPk
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/Qlp4mSRrCMYbtjp-xkTnfeWVJFNHlG2vIX3_pj2W25o
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/Qgve8NcFUhkfI2htq8Hb8_zKhsRj4NBwHFdkLdtedmk
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/VXZYsHVBHCjsuzFsW7EhjT_PZLyHtIJ-j74xoLI1Wns
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/JrwjzV_BoUrTOYWCxown1Lr-xWOBrtGQWwYgqBNQbfg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/VXZYsHVBHCjsuzFsW7EhjT_PZLyHtIJ-j74xoLI1Wns
+PASSED
+language/test_standard.py::test_maximum_minium[minimum-int32] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/2hCMGz8YQobjCqfMh3D8GUFp912yevT_RrHl9t6aLws
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/OnW8GPm4y_XufPcs0oQrLP96Krj3vfSWHobvAFxBIMw
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/av9iQR3TNq_7BnvB78fYYXeW3LvO176MDIaQErdKoko
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/BXIFQ2xypL84JbUth4FQS4qdE7QQoJr4h_IY3IWfoF0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/OnW8GPm4y_XufPcs0oQrLP96Krj3vfSWHobvAFxBIMw
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/HxLyxf65qzqgviNzRMdKMF3WeO-NpFrkVx_tZrvv8FE
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/OnW8GPm4y_XufPcs0oQrLP96Krj3vfSWHobvAFxBIMw
+PASSED
+language/test_standard.py::test_maximum_minium[minimum-int64] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/5XRoKzLqyVsKL0YR5_JdKwInxTx_04ZVt-8EX3YzKOs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DWct2eiYyVawze38J07lCwMv954znaEQJwZ0Pc4QMC4
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/h8S4SHHcRWAaMc_pGlWj8YXZOsX6vx-tDoyo5Aub-MI
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/7LDy0Qe2jOTOG7dkiwia2sUR2Xj9WowcWM5ZdAufeTs
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/j7hdQj-a-susIRa-c3CDRAy9S81Yow8pK69yYWbFFHQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DWct2eiYyVawze38J07lCwMv954znaEQJwZ0Pc4QMC4
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/vmiSIEKJ7ToiGofH8C-Jq60ge0SodnKWRDLL_ewl-rA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DWct2eiYyVawze38J07lCwMv954znaEQJwZ0Pc4QMC4
+PASSED
+language/test_standard.py::test_maximum_minium[minimum-uint8] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/iQaKIYmlll5xvBjbmBIo4HhZTKNXJ9XZTS9F_Cm4AlM
+FAILED
+language/test_standard.py::test_maximum_minium[minimum-uint16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/CrnqJYlazDLXaL6yTMF6EpGFuVQbFCVZiNqEc37uMhE
+FAILED
+language/test_standard.py::test_maximum_minium[minimum-uint32] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/z0wx3ELtDmFv3bp1XqIn-f-EUu0bsczuQkzvbameGqg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/SWpxhmmXKCithqMcSanl6ffvOG4ALttV5X2On0yqa0k
+FAILED
+language/test_standard.py::test_maximum_minium[minimum-uint64] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/ZgFtcyQl0IgkBQt6SXN_9-DEVY8Hm70JGXapy19rCj4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/9u8KKykXan4AK49BU4kfxrli50nJIYNdmol8-z8n3K4
+FAILED
+language/test_standard.py::test_maximum_minium[minimum-float16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/lxyGEtMMDyjDQHDeVFRe-TZLQgVrEnEDwxdZpDHMHwU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/hFkeGtljuXCWRew5KDq3EELB1Sw1CgogUloqS6JP1Xo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/y4ZmPzqws_hpg07uraWnaAdYKwNFg5Z9TLD_iLgZoQ0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/LtGZa9rqtgp58aH6ZizK2E2FRn_C_3o7ITZRhgfURcU
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/wIuRQeG0XwSI42_vJGLiw5VuO7j4DywChh-JgupL5d4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/hFkeGtljuXCWRew5KDq3EELB1Sw1CgogUloqS6JP1Xo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/T0urdZddoCis8bQxHJ85cR-WgsYG_PW4Ktnobzd9BTM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/hFkeGtljuXCWRew5KDq3EELB1Sw1CgogUloqS6JP1Xo
+PASSED
+language/test_standard.py::test_maximum_minium[minimum-float32] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/-S3BpgGmCCY5cxnQl8pynoKrFza2Hxlu0ZYu-ZV4-XU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mowkVqjXJbVkXYnx6gRbFtLsZvbW05UiDZmPnLIMvwo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/Bwklp_V_h5wAbePnOR_0LiZSJfuduckbzUtF9dBKbic
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/JwUU8Dxam6b07Im6hvuyrvJFjsJnIeLcjh6MF7f1cNw
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mowkVqjXJbVkXYnx6gRbFtLsZvbW05UiDZmPnLIMvwo
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/0H6MSokyoYcno56sT_9poBjRAjR2Bzm4mVzcPBoHoHA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mowkVqjXJbVkXYnx6gRbFtLsZvbW05UiDZmPnLIMvwo
+PASSED
+language/test_standard.py::test_maximum_minium[minimum-float64] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+FAILED
+language/test_standard.py::test_maximum_minium[minimum-bfloat16] [WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/a4NfVzY2D5cokF5AObcq1uFsdRLBDbwp7K-bdCGv0x0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/5IvCAI5jxNQi0s-bBtArKMsI0srdI1X3nL0z-tIkXLY
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/4josU_uudPwldvBlcpOnGbgDlPnCp1VZdG0BC5BAV4w
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/_tWuy7VCLrTHLvpbfNwF0-kifY6tDx0asVTpVjKlJPg
+[WARNING] Please DO NOT tune args ['num_warps', 'num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/39fMquPjhZz-Ws_clgLjFaQK8BX6WarOiSVamjTtcWE
+FAILED
+
+=================================== FAILURES ===================================
+______________________ test_maximum_minium[maximum-uint8] ______________________
+
+dtype = 'uint8', op = 'maximum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u8'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u8
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+_____________________ test_maximum_minium[maximum-uint16] ______________________
+
+dtype = 'uint16', op = 'maximum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u16'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u16
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+_____________________ test_maximum_minium[maximum-uint32] ______________________
+
+dtype = 'uint32', op = 'maximum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:350: in do_test
+    np.testing.assert_allclose(z_ref, to_numpy(z_tri), err_msg=err_msg, atol=3e-3, rtol=0.01)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0xfffe6b87f370>, array([3796167921,  780729585, 2278852751, 3625956742,...  158781260, 4261793651, 4098849921, 1885788235,  848014560,
+        969043332,  357879848, 4111583938], dtype=uint32))
+kwds = {'equal_nan': True, 'err_msg': 'tl.maximum(x, y), kernel', 'header': 'Not equal to tolerance rtol=0.01, atol=0.003', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=0.01, atol=0.003
+E           tl.maximum(x, y), kernel
+E           Mismatched elements: 71 / 128 (55.5%)
+E           Max absolute difference: 2146976354
+E           Max relative difference: 46.27241757
+E            x: array([3796167921,  780729585, 2278852751, 3625956742, 3417052975,
+E                  4195114691, 3299352822, 3465271213, 3745399544, 2865399738,
+E                  3934662862, 1688307991, 2738131412, 2791087527, 2472195591,...
+E            y: array([1265576559,  780729585,   67414634, 1529546468,  822575510,
+E                  4195114691,  291629808, 1938703938, 3745399544, 1761895455,
+E                  3934662862, 1688307991, 1176018709,  942749612, 1015249213,...
+
+../../miniconda/envs/triton/lib/python3.10/contextlib.py:79: AssertionError
+_____________________ test_maximum_minium[maximum-uint64] ______________________
+
+dtype = 'uint64', op = 'maximum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:350: in do_test
+    np.testing.assert_allclose(z_ref, to_numpy(z_tri), err_msg=err_msg, atol=3e-3, rtol=0.01)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0xfffe6b87edd0>, array([11878340426711209360,  9787598041570588038, 171...4463655,   681960323179466611, 16383855099889768523,
+        6191625195197365680,  2493177533929129084], dtype=uint64))
+kwds = {'equal_nan': True, 'err_msg': 'tl.maximum(x, y), kernel', 'header': 'Not equal to tolerance rtol=0.01, atol=0.003', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=0.01, atol=0.003
+E           tl.maximum(x, y), kernel
+E           Mismatched elements: 72 / 128 (56.2%)
+E           Max absolute difference: 9198634439785550437
+E           Max relative difference: 148.16570349
+E            x: array([11878340426711209360,  9787598041570588038, 17137854322444904059,
+E                   4978433452104191748, 15018951357972340258, 12821263228540220247,
+E                  11760184867633051564, 17585330810157468149, 10799382638087220813,...
+E            y: array([ 5435609932269944049,  8954030978788867189,  3532934917758166329,
+E                   4978433452104191748, 15018951357972340258, 12821263228540220247,
+E                   4344783661522929176, 17585330810157468149,   720583563344608273,...
+
+../../miniconda/envs/triton/lib/python3.10/contextlib.py:79: AssertionError
+_____________________ test_maximum_minium[maximum-float64] _____________________
+
+args = (<triton.language.core.tensor object at 0xfffe6bb33490>,)
+kwargs = {'_builder': <triton._C.libtriton.ir.builder object at 0xfffe6b67f380>}
+
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if "_builder" not in kwargs or kwargs["_builder"] is None:
+            print(kwargs)
+            raise ValueError("Did you forget to add @triton.jit ? "
+                             "(`_builder` argument must be provided outside of JIT functions.)")
+>       return fn(*args, **kwargs)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/language/core.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/language/core.py:1635: in load
+    return semantic.load(pointer, mask, other, boundary_check, padding_option, cache_modifier, eviction_policy,
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/language/semantic.py:1141: in load
+    return _load_legacy(ptr, mask, other, boundary_check, padding, cache, eviction, is_volatile, builder)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:416: in _load_legacy
+    other = cast(other, elt_ty, builder)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = <triton.language.core.tensor object at 0xfffe6bb32800>
+dst_ty = <[128], fp64>
+builder = <triton._C.libtriton.ir.builder object at 0xfffe6b67f380>
+fp_downcast_rounding = None
+
+    def cast(input: tl.tensor, dst_ty: tl.dtype, builder: ir.builder,
+             fp_downcast_rounding: Optional[str] = None) -> tl.tensor:
+        src_ty = input.type
+        if isinstance(dst_ty, tl.constexpr):
+            dst_ty = dst_ty.value
+        if isinstance(fp_downcast_rounding, tl.constexpr):
+            fp_downcast_rounding = fp_downcast_rounding.value
+        if src_ty.is_block():
+            dst_ty = tl.block_type(dst_ty.scalar, input.type.get_block_shapes())
+        if src_ty == dst_ty:
+            return input
+    
+        src_sca_ty = src_ty.scalar
+        dst_sca_ty = dst_ty.scalar
+    
+        # For fp downcasting default rounding mode should be RTNE, for all other conversions it should
+        # not be set
+        fp_downcast_rounding = _str_to_rounding_mode(fp_downcast_rounding)
+        use_custom_rounding = False
+        if dst_sca_ty.is_floating() and src_sca_ty.is_floating(
+        ) and dst_sca_ty.primitive_bitwidth < src_sca_ty.primitive_bitwidth:
+            if fp_downcast_rounding is None: fp_downcast_rounding = ir.ROUNDING_MODE.RTNE
+            elif fp_downcast_rounding != ir.ROUNDING_MODE.RTNE: use_custom_rounding = True
+        else:
+            if fp_downcast_rounding is not None:
+                raise ValueError("fp_downcast_rounding should be set only for truncating fp conversions. "
+                                 "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+    
+        if (src_sca_ty.is_fp8() or dst_sca_ty.is_fp8()) or (src_sca_ty.is_fp64() or dst_sca_ty.is_fp64()):
+>           raise ValueError("[fp8, fp64] is unsupported on Ascend for now."
+                             "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+E           ValueError: [fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:57: ValueError
+
+The above exception was the direct cause of the following exception:
+
+dtype = 'float64', op = 'maximum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:281: in compile
+    module = src.make_ir(options, codegen_fns, module_map, context)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <triton.compiler.compiler.ASTSource object at 0xfffe6b7a4f70>
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+codegen_fns = {'min_dot_size': <function min_dot_size.<locals>.<lambda> at 0xfffe6bc04af0>}
+module_map = {}
+context = <triton._C.libtriton.ir.context object at 0xfffe6e6eb8b0>
+
+    def make_ir(self, options, codegen_fns, module_map, context):
+>       return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
+                           module_map=module_map)
+E       triton.compiler.errors.CompilationError: at 3:8:
+E       def kernel(Z, X, Y, SIZE: tl.constexpr):
+E           off = tl.arange(0, SIZE)
+E           x = tl.load(X + off)
+E               ^
+E       ValueError('[fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64')
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:102: CompilationError
+____________________ test_maximum_minium[maximum-bfloat16] _____________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffe643ae320>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpdmw1vse6/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: 1 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin/b...>
+stdout = b''
+stderr = b'warning: linking module \'/tmp/tmpdmw1vse6/kernel.ll\': Linking two modules of different data layouts: \'/tmp/bishen...w1vse6/kernel.ttadapter.mlir":1:1): error: Failed to compile BiShengLIR for device\nFailed to run BiShengIR pipeline\n'
+retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpdmw1vse6/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpdmw1vse6/kernel']' returned non-zero exit status 1.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+dtype = 'bfloat16', op = 'maximum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:380: in _test_binary
+    do_test(x[:1].reshape(()), y, kernel_broadcast_lhs)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffe643ae320>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               warning: linking module '/tmp/tmpdmw1vse6/kernel.ll': Linking two modules of different data layouts: '/tmp/bishengir-bc-manager-70b5f3/autogen_meta_op_aiv.bc' is 'e-i1:8:32-i8:8:32-i16:16:32-i64:64-f16:16:32-v16:16-v32:32-n8:16:32:64-S64' whereas '/tmp/tmpdmw1vse6/kernel.ll' is 'e-i1:8:32-i8:8:32-i16:16:32-i64:64-f16:16:32-v16:16-v32:32-n64-S64'
+E                [-Wlinker-warnings]
+E               fatal error: error in backend: not support bf16 type cast
+E               bisheng: error: clang frontend command failed with exit code 70 (use -v to see invocation)
+E               2025-07-23T11:24:13+08:00 clang version 15.0.5 (clang-5c68a1cb1231 flang-5c68a1cb1231)
+E               Target: aarch64-unknown-linux-gnu
+E               Thread model: posix
+E               InstalledDir: /home/coder/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin
+E               error executing : /home/coder/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin/bisheng
+E               /home/coder/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin/bisheng --cce-aicore-arch=dav-c220-vec --cce-aicore-only -O2 -cce-bitcode-is-aicore -Wno-override-module -cce-link-aicore-ll-module /tmp/bishengir-bc-manager-70b5f3/autogen_meta_op_aiv.bc -o /tmp/tmpdmw1vse6/kernel.o /tmp/tmpdmw1vse6/kernel.ll -mllvm -cce-aicore-dcci-insert-for-scalar=false --cce-aicore-input-parameter-size=1536 
+E               loc("/tmp/tmpdmw1vse6/kernel.ttadapter.mlir":1:1): error: Failed to compile BiShengLIR for device
+E               Failed to run BiShengIR pipeline
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+______________________ test_maximum_minium[minimum-uint8] ______________________
+
+dtype = 'uint8', op = 'minimum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u8'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u8
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+_____________________ test_maximum_minium[minimum-uint16] ______________________
+
+dtype = 'uint16', op = 'minimum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u16'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u16
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+_____________________ test_maximum_minium[minimum-uint32] ______________________
+
+dtype = 'uint32', op = 'minimum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:350: in do_test
+    np.testing.assert_allclose(z_ref, to_numpy(z_tri), err_msg=err_msg, atol=3e-3, rtol=0.01)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0xfffe6b953250>, array([1265576559,  707176756,   67414634, 1529546468,... 2494408888, 2159243442, 3814663528,  255206271,  809962990,
+       4032485836, 3358783640, 3931861839], dtype=uint32))
+kwds = {'equal_nan': True, 'err_msg': 'tl.minimum(x, y), kernel', 'header': 'Not equal to tolerance rtol=0.01, atol=0.003', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=0.01, atol=0.003
+E           tl.minimum(x, y), kernel
+E           Mismatched elements: 71 / 128 (55.5%)
+E           Max absolute difference: 2146976354
+E           Max relative difference: 0.96573105
+E            x: array([1265576559,  707176756,   67414634, 1529546468,  822575510,
+E                  3817645369,  291629808, 1938703938, 3380076822, 1761895455,
+E                  2818931012,  442355239, 1176018709,  942749612, 1015249213,...
+E            y: array([3796167921,  707176756, 2278852751, 3625956742, 3417052975,
+E                  3817645369, 3299352822, 3465271213, 3380076822, 2865399738,
+E                  2818931012,  442355239, 2738131412, 2791087527, 2472195591,...
+
+../../miniconda/envs/triton/lib/python3.10/contextlib.py:79: AssertionError
+_____________________ test_maximum_minium[minimum-uint64] ______________________
+
+dtype = 'uint64', op = 'minimum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:350: in do_test
+    np.testing.assert_allclose(z_ref, to_numpy(z_tri), err_msg=err_msg, atol=3e-3, rtol=0.01)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (<function assert_allclose.<locals>.compare at 0xfffe6b950af0>, array([ 5435609932269944049,  8954030978788867189,  35...1656451,  9665404419511149506, 15843300425050763160,
+        3478764557052860876, 14425865892071699279], dtype=uint64))
+kwds = {'equal_nan': True, 'err_msg': 'tl.minimum(x, y), kernel', 'header': 'Not equal to tolerance rtol=0.01, atol=0.003', 'verbose': True}
+
+    @wraps(func)
+    def inner(*args, **kwds):
+        with self._recreate_cm():
+>           return func(*args, **kwds)
+E           AssertionError: 
+E           Not equal to tolerance rtol=0.01, atol=0.003
+E           tl.minimum(x, y), kernel
+E           Mismatched elements: 72 / 128 (56.2%)
+E           Max absolute difference: 9198634439785550437
+E           Max relative difference: 0.92944317
+E            x: array([ 5435609932269944049,  8954030978788867189,  3532934917758166329,
+E                   1252540491364030381, 14517319410219508767, 12107216506662538791,
+E                   4344783661522929176, 10617999215365180289,   720583563344608273,...
+E            y: array([11878340426711209360,  9787598041570588038, 17137854322444904059,
+E                   1252540491364030381, 14517319410219508767, 12107216506662538791,
+E                  11760184867633051564, 10617999215365180289, 10799382638087220813,...
+
+../../miniconda/envs/triton/lib/python3.10/contextlib.py:79: AssertionError
+_____________________ test_maximum_minium[minimum-float64] _____________________
+
+args = (<triton.language.core.tensor object at 0xfffe6689f460>,)
+kwargs = {'_builder': <triton._C.libtriton.ir.builder object at 0xfffdcf4b8e50>}
+
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if "_builder" not in kwargs or kwargs["_builder"] is None:
+            print(kwargs)
+            raise ValueError("Did you forget to add @triton.jit ? "
+                             "(`_builder` argument must be provided outside of JIT functions.)")
+>       return fn(*args, **kwargs)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/language/core.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/language/core.py:1635: in load
+    return semantic.load(pointer, mask, other, boundary_check, padding_option, cache_modifier, eviction_policy,
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/language/semantic.py:1141: in load
+    return _load_legacy(ptr, mask, other, boundary_check, padding, cache, eviction, is_volatile, builder)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:416: in _load_legacy
+    other = cast(other, elt_ty, builder)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = <triton.language.core.tensor object at 0xfffe6689e020>
+dst_ty = <[128], fp64>
+builder = <triton._C.libtriton.ir.builder object at 0xfffdcf4b8e50>
+fp_downcast_rounding = None
+
+    def cast(input: tl.tensor, dst_ty: tl.dtype, builder: ir.builder,
+             fp_downcast_rounding: Optional[str] = None) -> tl.tensor:
+        src_ty = input.type
+        if isinstance(dst_ty, tl.constexpr):
+            dst_ty = dst_ty.value
+        if isinstance(fp_downcast_rounding, tl.constexpr):
+            fp_downcast_rounding = fp_downcast_rounding.value
+        if src_ty.is_block():
+            dst_ty = tl.block_type(dst_ty.scalar, input.type.get_block_shapes())
+        if src_ty == dst_ty:
+            return input
+    
+        src_sca_ty = src_ty.scalar
+        dst_sca_ty = dst_ty.scalar
+    
+        # For fp downcasting default rounding mode should be RTNE, for all other conversions it should
+        # not be set
+        fp_downcast_rounding = _str_to_rounding_mode(fp_downcast_rounding)
+        use_custom_rounding = False
+        if dst_sca_ty.is_floating() and src_sca_ty.is_floating(
+        ) and dst_sca_ty.primitive_bitwidth < src_sca_ty.primitive_bitwidth:
+            if fp_downcast_rounding is None: fp_downcast_rounding = ir.ROUNDING_MODE.RTNE
+            elif fp_downcast_rounding != ir.ROUNDING_MODE.RTNE: use_custom_rounding = True
+        else:
+            if fp_downcast_rounding is not None:
+                raise ValueError("fp_downcast_rounding should be set only for truncating fp conversions. "
+                                 "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+    
+        if (src_sca_ty.is_fp8() or dst_sca_ty.is_fp8()) or (src_sca_ty.is_fp64() or dst_sca_ty.is_fp64()):
+>           raise ValueError("[fp8, fp64] is unsupported on Ascend for now."
+                             "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+E           ValueError: [fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:57: ValueError
+
+The above exception was the direct cause of the following exception:
+
+dtype = 'float64', op = 'minimum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:371: in _test_binary
+    do_test(x, y, kernel)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:281: in compile
+    module = src.make_ir(options, codegen_fns, module_map, context)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <triton.compiler.compiler.ASTSource object at 0xfffe6ed8c370>
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+codegen_fns = {'min_dot_size': <function min_dot_size.<locals>.<lambda> at 0xfffe6b86dab0>}
+module_map = {}
+context = <triton._C.libtriton.ir.context object at 0xfffe6bb56b30>
+
+    def make_ir(self, options, codegen_fns, module_map, context):
+>       return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
+                           module_map=module_map)
+E       triton.compiler.errors.CompilationError: at 3:8:
+E       def kernel(Z, X, Y, SIZE: tl.constexpr):
+E           off = tl.arange(0, SIZE)
+E           x = tl.load(X + off)
+E               ^
+E       ValueError('[fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64')
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:102: CompilationError
+____________________ test_maximum_minium[minimum-bfloat16] _____________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffe6bc03880>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpv4kwahbb/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: 1 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin/b...>
+stdout = b''
+stderr = b'warning: linking module \'/tmp/tmpv4kwahbb/kernel.ll\': Linking two modules of different data layouts: \'/tmp/bishen...kwahbb/kernel.ttadapter.mlir":1:1): error: Failed to compile BiShengLIR for device\nFailed to run BiShengIR pipeline\n'
+retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpv4kwahbb/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpv4kwahbb/kernel']' returned non-zero exit status 1.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+dtype = 'bfloat16', op = 'minimum', device = 'npu'
+
+>   ???
+
+/home/coder/workspace/triton-test/unit/language/test_standard.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+language/test_core.py:380: in _test_binary
+    do_test(x[:1].reshape(()), y, kernel_broadcast_lhs)
+language/test_core.py:348: in do_test
+    kernel_fn[(1, )](z_tri, x_tri, y_tri, SIZE=SIZE, num_warps=4, num_ctas=num_ctas)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffe6bc03880>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               warning: linking module '/tmp/tmpv4kwahbb/kernel.ll': Linking two modules of different data layouts: '/tmp/bishengir-bc-manager-152b7d/autogen_meta_op_aiv.bc' is 'e-i1:8:32-i8:8:32-i16:16:32-i64:64-f16:16:32-v16:16-v32:32-n8:16:32:64-S64' whereas '/tmp/tmpv4kwahbb/kernel.ll' is 'e-i1:8:32-i8:8:32-i16:16:32-i64:64-f16:16:32-v16:16-v32:32-n64-S64'
+E                [-Wlinker-warnings]
+E               fatal error: error in backend: not support bf16 type cast
+E               bisheng: error: clang frontend command failed with exit code 70 (use -v to see invocation)
+E               2025-07-23T11:24:13+08:00 clang version 15.0.5 (clang-5c68a1cb1231 flang-5c68a1cb1231)
+E               Target: aarch64-unknown-linux-gnu
+E               Thread model: posix
+E               InstalledDir: /home/coder/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin
+E               error executing : /home/coder/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin/bisheng
+E               /home/coder/Ascend/ascend-toolkit/latest/compiler/ccec_compiler/bin/bisheng --cce-aicore-arch=dav-c220-vec --cce-aicore-only -O2 -cce-bitcode-is-aicore -Wno-override-module -cce-link-aicore-ll-module /tmp/bishengir-bc-manager-152b7d/autogen_meta_op_aiv.bc -o /tmp/tmpv4kwahbb/kernel.o /tmp/tmpv4kwahbb/kernel.ll -mllvm -cce-aicore-dcci-insert-for-scalar=false --cce-aicore-input-parameter-size=1536 
+E               loc("/tmp/tmpv4kwahbb/kernel.ttadapter.mlir":1:1): error: Failed to compile BiShengLIR for device
+E               Failed to run BiShengIR pipeline
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+=========================== short test summary info ============================
+FAILED language/test_standard.py::test_maximum_minium[maximum-uint8] - ValueE...
+FAILED language/test_standard.py::test_maximum_minium[maximum-uint16] - Value...
+FAILED language/test_standard.py::test_maximum_minium[maximum-uint32] - Asser...
+FAILED language/test_standard.py::test_maximum_minium[maximum-uint64] - Asser...
+FAILED language/test_standard.py::test_maximum_minium[maximum-float64] - trit...
+FAILED language/test_standard.py::test_maximum_minium[maximum-bfloat16] - tri...
+FAILED language/test_standard.py::test_maximum_minium[minimum-uint8] - ValueE...
+FAILED language/test_standard.py::test_maximum_minium[minimum-uint16] - Value...
+FAILED language/test_standard.py::test_maximum_minium[minimum-uint32] - Asser...
+FAILED language/test_standard.py::test_maximum_minium[minimum-uint64] - Asser...
+FAILED language/test_standard.py::test_maximum_minium[minimum-float64] - trit...
+FAILED language/test_standard.py::test_maximum_minium[minimum-bfloat16] - tri...
+================== 12 failed, 12 passed in 902.61s (0:15:02) ===================
