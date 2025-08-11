@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_compile_errors.py::test_err_in_builtin PASSED
+
+============================== 1 passed in 5.07s ===============================
