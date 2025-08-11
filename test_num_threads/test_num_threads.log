@@ -1,0 +1,85 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_core.py::test_num_threads [WARNING] Please DO NOT tune args ['num_warps']!
+FAILED
+
+=================================== FAILURES ===================================
+_______________________________ test_num_threads _______________________________
+
+device = 'npu'
+
+    def test_num_threads(device):
+        if is_hip():
+            pytest.skip("test_num_threads is not supported in HIP")
+    
+        @triton.jit
+        def kernel(Out):
+            num_threads: tl.constexpr = tl.extra.cuda.num_threads()
+            offs = tl.arange(0, num_threads)
+            tl.store(Out + offs, 1)
+    
+        num_threads = 256
+        out = to_triton(np.zeros((num_threads, ), dtype=np.int32), device=device)
+>       kernel[(1, )](out, num_warps=num_threads // 32)
+
+language/test_core.py:5123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:233: in compile
+    key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:98: in hash
+    key = f"{self.fn.cache_key}-{self.attrs.hash()}-{sorted_sig}-{sorted_constants}"
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:740: in cache_key
+    dependencies_finder.visit(self.parse())
+../../miniconda/envs/triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/triton/lib/python3.10/ast.py:426: in generic_visit
+    self.visit(item)
+../../miniconda/envs/triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:149: in visit_FunctionDef
+    self.generic_visit(node)
+../../miniconda/envs/triton/lib/python3.10/ast.py:426: in generic_visit
+    self.visit(item)
+../../miniconda/envs/triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:209: in visit_AnnAssign
+    self.generic_visit(node)
+../../miniconda/envs/triton/lib/python3.10/ast.py:428: in generic_visit
+    self.visit(value)
+../../miniconda/envs/triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/triton/lib/python3.10/ast.py:428: in generic_visit
+    self.visit(value)
+../../miniconda/envs/triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:137: in visit_Attribute
+    lhs = self.visit(node.value)
+../../miniconda/envs/triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <triton.runtime.jit.DependenciesFinder object at 0xfffdbfa3abc0>
+node = <ast.Attribute object at 0xfffdbfa3ac20>
+
+    def visit_Attribute(self, node):
+        lhs = self.visit(node.value)
+        while isinstance(lhs, ast.Attribute):
+            lhs = self.visit(lhs.value)
+        if lhs is None or (getattr(lhs, "__name__", "") == TRITON_MODULE):
+            return None
+>       ret = getattr(lhs, node.attr)
+E       AttributeError: module 'triton.language.extra' has no attribute 'cuda'
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:142: AttributeError
+=========================== short test summary info ============================
+FAILED language/test_core.py::test_num_threads - AttributeError: module 'trit...
+============================== 1 failed in 20.92s ==============================
