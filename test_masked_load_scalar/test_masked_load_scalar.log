@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 4 items
+
+language/test_core.py::test_masked_load_scalar[0-True-1] [WARNING] Please DO NOT tune args ['num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/kMhLBcsW_T7A1EvepVAU1Hik9UK9_mtP5hj6_BJDSNo
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+PASSED
+language/test_core.py::test_masked_load_scalar[0-False-1] [WARNING] Please DO NOT tune args ['num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/i1p-cpeoUnooW4cFznlARuRtAIiE_bBISyJqypDwf90
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+PASSED
+language/test_core.py::test_masked_load_scalar[1-True-1] [WARNING] Please DO NOT tune args ['num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/ZPWHq_gWAX7TdsDvAVuJkNgyRJqUpmMxKVVXuhTKFuA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+PASSED
+language/test_core.py::test_masked_load_scalar[1-False-1] [WARNING] Please DO NOT tune args ['num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/piRBTvqMYsfXFMcySAXy07lbgC8xMOqG4Mso0BvKH78
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+PASSED
+
+========================= 4 passed in 88.23s (0:01:28) =========================
