@@ -5,18 +5,23 @@ rootdir: /home/coder/workspace/triton-test
 plugins: xdist-3.6.1
 collecting ... collected 5 items
 
-language/test_core.py::test_atomic_cas[1-None] FAILED
-language/test_core.py::test_atomic_cas[1-acquire] FAILED
-language/test_core.py::test_atomic_cas[1-release] FAILED
-language/test_core.py::test_atomic_cas[1-acq_rel] FAILED
-language/test_core.py::test_atomic_cas[1-relaxed] FAILED
+language/test_core.py::test_atomic_cas[1-None] Dumping intermediate results to /home/coder/.triton/dump/LXnLh5KGbDYo_2w8yDsK4autFic6bSezQxJU8EsRJLk
+FAILED
+language/test_core.py::test_atomic_cas[1-acquire] Dumping intermediate results to /home/coder/.triton/dump/LXnLh5KGbDYo_2w8yDsK4autFic6bSezQxJU8EsRJLk
+FAILED
+language/test_core.py::test_atomic_cas[1-release] Dumping intermediate results to /home/coder/.triton/dump/LXnLh5KGbDYo_2w8yDsK4autFic6bSezQxJU8EsRJLk
+FAILED
+language/test_core.py::test_atomic_cas[1-acq_rel] Dumping intermediate results to /home/coder/.triton/dump/LXnLh5KGbDYo_2w8yDsK4autFic6bSezQxJU8EsRJLk
+FAILED
+language/test_core.py::test_atomic_cas[1-relaxed] Dumping intermediate results to /home/coder/.triton/dump/LXnLh5KGbDYo_2w8yDsK4autFic6bSezQxJU8EsRJLk
+FAILED
 
 =================================== FAILURES ===================================
 ___________________________ test_atomic_cas[1-None] ____________________________
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffde4bee9b0>
+src = <triton.compiler.compiler.ASTSource object at 0xfffdeab4f250>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -98,11 +103,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = True, timeout = None, check = True
-popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmphr65w6qt/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpcr5ykp9m/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
 kwargs = {'stderr': -1, 'stdout': -1}
 process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
 stdout = b''
-stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffb9e884c4\n20 libc.so.6         0x0000ffffb9e88598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaacd58b4e0\n'
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ff9c1c84c4\n20 libc.so.6         0x0000ffff9c1c8598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaac22cb4e0\n'
 retcode = -11
 
     def run(*popenargs,
@@ -172,7 +177,7 @@ retcode = -11
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmphr65w6qt/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmphr65w6qt/kernel']' died with <Signals.SIGSEGV: 11>.
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpcr5ykp9m/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpcr5ykp9m/kernel']' died with <Signals.SIGSEGV: 11>.
 
 ../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
 
@@ -200,9 +205,9 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     kernel = self.compile(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffde4bee9b0>
+src = <triton.compiler.compiler.ASTSource object at 0xfffdeab4f250>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -288,15 +293,15 @@ E               ///------------------[ERROR][Triton][BEG]------------------
 E               [ConvertLinalgRToBinary] encounters error:
 E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
 E               Stack dump:
-E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmphr65w6qt/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmphr65w6qt/kernel
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpcr5ykp9m/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpcr5ykp9m/kernel
 E               ///------------------[ERROR][Triton][END]------------------
 
 ../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
 __________________________ test_atomic_cas[1-acquire] __________________________
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffde542c8e0>
+src = <triton.compiler.compiler.ASTSource object at 0xfffdeaea5270>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -378,11 +383,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = True, timeout = None, check = True
-popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpq0zmnguv/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpexom43_3/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
 kwargs = {'stderr': -1, 'stdout': -1}
 process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
 stdout = b''
-stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffb06084c4\n20 libc.so.6         0x0000ffffb0608598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaac81eb4e0\n'
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ff913c84c4\n20 libc.so.6         0x0000ffff913c8598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaaea15b4e0\n'
 retcode = -11
 
     def run(*popenargs,
@@ -452,7 +457,7 @@ retcode = -11
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpq0zmnguv/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpq0zmnguv/kernel']' died with <Signals.SIGSEGV: 11>.
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpexom43_3/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpexom43_3/kernel']' died with <Signals.SIGSEGV: 11>.
 
 ../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
 
@@ -480,9 +485,9 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     kernel = self.compile(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffde542c8e0>
+src = <triton.compiler.compiler.ASTSource object at 0xfffdeaea5270>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -568,15 +573,15 @@ E               ///------------------[ERROR][Triton][BEG]------------------
 E               [ConvertLinalgRToBinary] encounters error:
 E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
 E               Stack dump:
-E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpq0zmnguv/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpq0zmnguv/kernel
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpexom43_3/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpexom43_3/kernel
 E               ///------------------[ERROR][Triton][END]------------------
 
 ../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
 __________________________ test_atomic_cas[1-release] __________________________
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffddf147700>
+src = <triton.compiler.compiler.ASTSource object at 0xfffdeaec9ea0>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -658,11 +663,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = True, timeout = None, check = True
-popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpzosp8sab/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpo34rnsw0/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
 kwargs = {'stderr': -1, 'stdout': -1}
 process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
 stdout = b''
-stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffad5084c4\n20 libc.so.6         0x0000ffffad508598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaae1c4b4e0\n'
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffbc9784c4\n20 libc.so.6         0x0000ffffbc978598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaaadceb4e0\n'
 retcode = -11
 
     def run(*popenargs,
@@ -732,7 +737,7 @@ retcode = -11
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpzosp8sab/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpzosp8sab/kernel']' died with <Signals.SIGSEGV: 11>.
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpo34rnsw0/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpo34rnsw0/kernel']' died with <Signals.SIGSEGV: 11>.
 
 ../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
 
@@ -760,9 +765,9 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     kernel = self.compile(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffddf147700>
+src = <triton.compiler.compiler.ASTSource object at 0xfffdeaec9ea0>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -848,15 +853,15 @@ E               ///------------------[ERROR][Triton][BEG]------------------
 E               [ConvertLinalgRToBinary] encounters error:
 E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
 E               Stack dump:
-E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpzosp8sab/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpzosp8sab/kernel
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpo34rnsw0/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpo34rnsw0/kernel
 E               ///------------------[ERROR][Triton][END]------------------
 
 ../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
 __________________________ test_atomic_cas[1-acq_rel] __________________________
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffde551ca90>
+src = <triton.compiler.compiler.ASTSource object at 0xffffb1e1ff10>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -938,11 +943,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = True, timeout = None, check = True
-popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpgm55ru3f/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpiy2r8a7n/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
 kwargs = {'stderr': -1, 'stdout': -1}
 process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
 stdout = b''
-stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffb9a984c4\n20 libc.so.6         0x0000ffffb9a98598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaab9c7b4e0\n'
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffbcc084c4\n20 libc.so.6         0x0000ffffbcc08598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaac8e9b4e0\n'
 retcode = -11
 
     def run(*popenargs,
@@ -1012,7 +1017,7 @@ retcode = -11
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpgm55ru3f/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpgm55ru3f/kernel']' died with <Signals.SIGSEGV: 11>.
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpiy2r8a7n/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpiy2r8a7n/kernel']' died with <Signals.SIGSEGV: 11>.
 
 ../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
 
@@ -1040,9 +1045,9 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     kernel = self.compile(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffde551ca90>
+src = <triton.compiler.compiler.ASTSource object at 0xffffb1e1ff10>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -1128,15 +1133,15 @@ E               ///------------------[ERROR][Triton][BEG]------------------
 E               [ConvertLinalgRToBinary] encounters error:
 E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
 E               Stack dump:
-E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpgm55ru3f/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpgm55ru3f/kernel
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpiy2r8a7n/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpiy2r8a7n/kernel
 E               ///------------------[ERROR][Triton][END]------------------
 
 ../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
 __________________________ test_atomic_cas[1-relaxed] __________________________
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffddece7940>
+src = <triton.compiler.compiler.ASTSource object at 0xffffb1e2add0>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -1218,11 +1223,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = True, timeout = None, check = True
-popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpt4griupt/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpl10y655_/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
 kwargs = {'stderr': -1, 'stdout': -1}
 process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
 stdout = b''
-stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ff83b384c4\n20 libc.so.6         0x0000ffff83b38598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaab120b4e0\n'
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ff9aab84c4\n20 libc.so.6         0x0000ffff9aab8598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaade14b4e0\n'
 retcode = -11
 
     def run(*popenargs,
@@ -1292,7 +1297,7 @@ retcode = -11
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpt4griupt/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpt4griupt/kernel']' died with <Signals.SIGSEGV: 11>.
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpl10y655_/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpl10y655_/kernel']' died with <Signals.SIGSEGV: 11>.
 
 ../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
 
@@ -1320,9 +1325,9 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
     kernel = self.compile(
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-src = <triton.compiler.compiler.ASTSource object at 0xfffddece7940>
+src = <triton.compiler.compiler.ASTSource object at 0xffffb1e2add0>
 target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
-options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
 
     def compile(src, target=None, options=None):
         if target is None:
@@ -1408,7 +1413,7 @@ E               ///------------------[ERROR][Triton][BEG]------------------
 E               [ConvertLinalgRToBinary] encounters error:
 E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
 E               Stack dump:
-E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpt4griupt/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpt4griupt/kernel
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpl10y655_/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpl10y655_/kernel
 E               ///------------------[ERROR][Triton][END]------------------
 
 ../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
@@ -1418,4 +1423,4 @@ FAILED language/test_core.py::test_atomic_cas[1-acquire] - triton.compiler.er...
 FAILED language/test_core.py::test_atomic_cas[1-release] - triton.compiler.er...
 FAILED language/test_core.py::test_atomic_cas[1-acq_rel] - triton.compiler.er...
 FAILED language/test_core.py::test_atomic_cas[1-relaxed] - triton.compiler.er...
-============================== 5 failed in 23.31s ==============================
+============================== 5 failed in 24.52s ==============================
