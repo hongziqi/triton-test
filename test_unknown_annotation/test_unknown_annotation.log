@@ -1,0 +1,66 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_annotations.py::test_unknown_annotation FAILED
+
+=================================== FAILURES ===================================
+___________________________ test_unknown_annotation ____________________________
+
+device = 'npu'
+
+    def test_unknown_annotation(device):
+    
+        @triton.jit
+        def _kernel(X: torch.Tensor, N: int, BLOCK_SIZE: tl.constexpr):
+            pass
+        x = torch.empty(1, device=device)
+        _kernel[(1, )](x, x.shape[0], 32)
+        try:
+>           _kernel[(1, )](x.shape[0], x.shape[0], 32)
+
+language/test_annotations.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:82: in __init__
+    so_launcher_path = make_npu_launcher_stub(wrapper_src, debug_mode)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:197: in make_npu_launcher_stub
+    so = _build_npu_ext(name, src_path, tmpdir, kernel_launcher=kernel_launcher_type)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:235: in _build_npu_ext
+    ret = subprocess.check_call(cc_cmd)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+popenargs = (['/home/coder/bin/clang++', '/tmp/tmphpti4b5k/launcher_cxx11abi1.cxx', '-w', '-I/home/coder/miniconda/envs/triton/inc...iton/lib/python3.10/site-packages/triton/backends/ascend', '-I/home/coder/Ascend/ascend-toolkit/latest/include', ...],)
+kwargs = {}, retcode = 1
+cmd = ['/home/coder/bin/clang++', '/tmp/tmphpti4b5k/launcher_cxx11abi1.cxx', '-w', '-I/home/coder/miniconda/envs/triton/incl...triton/lib/python3.10/site-packages/triton/backends/ascend', '-I/home/coder/Ascend/ascend-toolkit/latest/include', ...]
+
+    def check_call(*popenargs, **kwargs):
+        """Run command with arguments.  Wait for command to complete.  If
+        the exit code was zero then return, otherwise raise
+        CalledProcessError.  The CalledProcessError object will have the
+        return code in the returncode attribute.
+    
+        The arguments are the same as for the call function.  Example:
+    
+        check_call(["ls", "-l"])
+        """
+        retcode = call(*popenargs, **kwargs)
+        if retcode:
+            cmd = kwargs.get("args")
+            if cmd is None:
+                cmd = popenargs[0]
+>           raise CalledProcessError(retcode, cmd)
+E           subprocess.CalledProcessError: Command '['/home/coder/bin/clang++', '/tmp/tmphpti4b5k/launcher_cxx11abi1.cxx', '-w', '-I/home/coder/miniconda/envs/triton/include/python3.10', '-I/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend', '-I/home/coder/Ascend/ascend-toolkit/latest/include', '-I/home/coder/Ascend/ascend-toolkit/latest/include/experiment', '-I/home/coder/Ascend/ascend-toolkit/latest/include/experiment/msprof', '-I/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/pybind11/include', '-L/home/coder/Ascend/ascend-toolkit/latest/lib64', '-lruntime', '-lascendcl', '-I/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/torch/include', '-I/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/torch_npu/include', '-L/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/torch_npu/lib', '-ltorch_npu', '-D_GLIBCXX_USE_CXX11_ABI=1', '-std=c++17', '-shared', '-fPIC', '-o', '/tmp/tmphpti4b5k/launcher_cxx11abi1.cpython-310-aarch64-linux-gnu.so']' returned non-zero exit status 1.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:369: CalledProcessError
+=========================== short test summary info ============================
+FAILED language/test_annotations.py::test_unknown_annotation - subprocess.Cal...
+============================== 1 failed in 34.55s ==============================
