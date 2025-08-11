@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_core.py::test_static_range Dumping intermediate results to /home/coder/.triton/dump/O941d9zOD3t34GcUHPJ2PDNRFkqgB75d1iJ3cm3vizQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/mVTRLAySWSaJAUDfmQ5jRbp1E9-91WAmbpkIkLoaDQo
+PASSED
+
+============================== 1 passed in 20.22s ==============================
