@@ -9,4 +9,4 @@ pytest -sv language/test_core.py::test_inline_asm_with_pointers > test_inline_as
 通过数量：0
 失败数量：1
 跳过数量：0
-问题定界：tl.extra.cuda.num_threads方法是cuda特有，npu暂无该OP
+问题定界：TA, ConvertTritonIRToLinalgIR 转换异常导致

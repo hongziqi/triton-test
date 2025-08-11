@@ -15,7 +15,8 @@ def enable_dump_context(pass_name="1"):
         os.environ["MLIR_ENABLE_DUMP"] = "0"
 
 
-def test_fn_dump(capfd, device, fresh_triton_cache):
+def test_fn_dump(capfd):
+    device = "npu"
     N = 1024
     src = torch.zeros(N, device=device)
 

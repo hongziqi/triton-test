@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 6 items
+
+language/test_line_info.py::test_line_info[single] SKIPPED (disassem...)
+language/test_line_info.py::test_line_info[call] SKIPPED (disassembl...)
+language/test_line_info.py::test_line_info[call_noinline] SKIPPED (d...)
+language/test_line_info.py::test_line_info[autotune] SKIPPED (disass...)
+language/test_line_info.py::test_line_info[dot_combine] SKIPPED (dis...)
+language/test_line_info.py::test_line_info[cdiv] SKIPPED (disassembl...)
+
+============================== 6 skipped in 8.01s ==============================
