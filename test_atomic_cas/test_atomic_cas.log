@@ -1,0 +1,1421 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 5 items
+
+language/test_core.py::test_atomic_cas[1-None] FAILED
+language/test_core.py::test_atomic_cas[1-acquire] FAILED
+language/test_core.py::test_atomic_cas[1-release] FAILED
+language/test_core.py::test_atomic_cas[1-acq_rel] FAILED
+language/test_core.py::test_atomic_cas[1-relaxed] FAILED
+
+=================================== FAILURES ===================================
+___________________________ test_atomic_cas[1-None] ____________________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffde4bee9b0>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmphr65w6qt/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
+stdout = b''
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffb9e884c4\n20 libc.so.6         0x0000ffffb9e88598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaacd58b4e0\n'
+retcode = -11
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmphr65w6qt/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmphr65w6qt/kernel']' died with <Signals.SIGSEGV: 11>.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+sem = None, num_ctas = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("sem", [None, 'acquire', 'release', 'acq_rel', 'relaxed'])
+    @pytest.mark.parametrize("num_ctas", num_ctas_list)
+    def test_atomic_cas(sem, num_ctas, device):
+        # 1. make sure that atomic_cas changes the original value (Lock)
+        @triton.jit
+        def change_value(Lock):
+            tl.atomic_cas(Lock, 0, 1)
+    
+        Lock = torch.zeros((1, ), device=device, dtype=torch.int32)
+>       change_value[(1, )](Lock)
+
+language/test_core.py:1521: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffde4bee9b0>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E               Stack dump:
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmphr65w6qt/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmphr65w6qt/kernel
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+__________________________ test_atomic_cas[1-acquire] __________________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffde542c8e0>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpq0zmnguv/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
+stdout = b''
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffb06084c4\n20 libc.so.6         0x0000ffffb0608598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaac81eb4e0\n'
+retcode = -11
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpq0zmnguv/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpq0zmnguv/kernel']' died with <Signals.SIGSEGV: 11>.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+sem = 'acquire', num_ctas = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("sem", [None, 'acquire', 'release', 'acq_rel', 'relaxed'])
+    @pytest.mark.parametrize("num_ctas", num_ctas_list)
+    def test_atomic_cas(sem, num_ctas, device):
+        # 1. make sure that atomic_cas changes the original value (Lock)
+        @triton.jit
+        def change_value(Lock):
+            tl.atomic_cas(Lock, 0, 1)
+    
+        Lock = torch.zeros((1, ), device=device, dtype=torch.int32)
+>       change_value[(1, )](Lock)
+
+language/test_core.py:1521: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffde542c8e0>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E               Stack dump:
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpq0zmnguv/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpq0zmnguv/kernel
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+__________________________ test_atomic_cas[1-release] __________________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffddf147700>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpzosp8sab/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
+stdout = b''
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffad5084c4\n20 libc.so.6         0x0000ffffad508598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaae1c4b4e0\n'
+retcode = -11
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpzosp8sab/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpzosp8sab/kernel']' died with <Signals.SIGSEGV: 11>.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+sem = 'release', num_ctas = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("sem", [None, 'acquire', 'release', 'acq_rel', 'relaxed'])
+    @pytest.mark.parametrize("num_ctas", num_ctas_list)
+    def test_atomic_cas(sem, num_ctas, device):
+        # 1. make sure that atomic_cas changes the original value (Lock)
+        @triton.jit
+        def change_value(Lock):
+            tl.atomic_cas(Lock, 0, 1)
+    
+        Lock = torch.zeros((1, ), device=device, dtype=torch.int32)
+>       change_value[(1, )](Lock)
+
+language/test_core.py:1521: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffddf147700>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E               Stack dump:
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpzosp8sab/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpzosp8sab/kernel
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+__________________________ test_atomic_cas[1-acq_rel] __________________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffde551ca90>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpgm55ru3f/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
+stdout = b''
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ffb9a984c4\n20 libc.so.6         0x0000ffffb9a98598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaab9c7b4e0\n'
+retcode = -11
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpgm55ru3f/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpgm55ru3f/kernel']' died with <Signals.SIGSEGV: 11>.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+sem = 'acq_rel', num_ctas = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("sem", [None, 'acquire', 'release', 'acq_rel', 'relaxed'])
+    @pytest.mark.parametrize("num_ctas", num_ctas_list)
+    def test_atomic_cas(sem, num_ctas, device):
+        # 1. make sure that atomic_cas changes the original value (Lock)
+        @triton.jit
+        def change_value(Lock):
+            tl.atomic_cas(Lock, 0, 1)
+    
+        Lock = torch.zeros((1, ), device=device, dtype=torch.int32)
+>       change_value[(1, )](Lock)
+
+language/test_core.py:1521: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffde551ca90>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E               Stack dump:
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpgm55ru3f/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpgm55ru3f/kernel
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+__________________________ test_atomic_cas[1-relaxed] __________________________
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffddece7940>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+>               next_module = compile_ir(module, metadata)
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:288: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:470: in <lambda>
+    lambda src, metadata: linalg_to_bin_enable_npu_compile(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py:293: in linalg_to_bin_enable_npu_compile
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = True, timeout = None, check = True
+popenargs = (['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpt4griupt/kernel.ttadapter.mlir', '--enabl...fer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', ...],)
+kwargs = {'stderr': -1, 'stdout': -1}
+process = <Popen: returncode: -11 args: ['/home/coder/Ascend/ascend-toolkit/latest/bin...>
+stdout = b''
+stderr = b'PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.\nStack d...ff83b384c4\n20 libc.so.6         0x0000ffff83b38598 __libc_start_main + 152\n21 bishengir-compile 0x0000aaaab120b4e0\n'
+retcode = -11
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['/home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile', '/tmp/tmpt4griupt/kernel.ttadapter.mlir', '--enable-auto-multi-buffer=True', '--enable-hfusion-compile=true', '--enable-hivm-compile=true', '--enable-triton-kernel-compile=true', '-o', '/tmp/tmpt4griupt/kernel']' died with <Signals.SIGSEGV: 11>.
+
+../../miniconda/envs/triton/lib/python3.10/subprocess.py:526: CalledProcessError
+
+During handling of the above exception, another exception occurred:
+
+sem = 'relaxed', num_ctas = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("sem", [None, 'acquire', 'release', 'acq_rel', 'relaxed'])
+    @pytest.mark.parametrize("num_ctas", num_ctas_list)
+    def test_atomic_cas(sem, num_ctas, device):
+        # 1. make sure that atomic_cas changes the original value (Lock)
+        @triton.jit
+        def change_value(Lock):
+            tl.atomic_cas(Lock, 0, 1)
+    
+        Lock = torch.zeros((1, ), device=device, dtype=torch.int32)
+>       change_value[(1, )](Lock)
+
+language/test_core.py:1521: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = <triton.compiler.compiler.ASTSource object at 0xfffddece7940>
+target = GPUTarget(backend='npu', arch='Ascend910B4', warp_size=0)
+options = NPUOptions(debug=False, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_wa...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+
+    def compile(src, target=None, options=None):
+        if target is None:
+            target = driver.active.get_current_target()
+        assert isinstance(target, GPUTarget), "target must be of GPUTarget type"
+        backend = make_backend(target)
+        ir_source = not isinstance(src, ASTSource)
+        # create backend
+        if ir_source:
+            assert isinstance(src, str), "source must be either AST or a filepath"
+            src = IRSource(src)
+        extra_options = src.parse_options()
+        options = backend.parse_options(dict(options or dict(), **extra_options))
+        # create cache manager
+        env_vars = get_cache_invalidating_env_vars()
+        key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+        hash = hashlib.sha256(key.encode("utf-8")).hexdigest()
+        fn_cache_manager = get_cache_manager(hash)
+        # For dumping/overriding only hash the source as we want it to be independent of triton
+        # core changes to make it easier to track kernels by hash.
+        enable_override = os.environ.get("TRITON_KERNEL_OVERRIDE", "0") == "1"
+        enable_ir_dump = os.environ.get("TRITON_KERNEL_DUMP", "0") == "1"
+        fn_override_manager = get_override_manager(src.hash()) if enable_override else None
+        fn_dump_manager = get_dump_manager(src.hash()) if enable_ir_dump else None
+        # Pre-truncate the file name here to avoid hitting the 255 character limit on common platforms.
+        # The final file name in the cache will have a format of f"{filename}.{ext}.tmp.pid_{pid}_{uuid}".
+        # A PID string can be 5-character long. A UUID string has typically 36 characters. Let's truncate
+        # the file name to 150 characters to be safe.
+        file_name = src.name[:150]
+        metadata_filename = f"{file_name}.json"
+        metadata_group = fn_cache_manager.get_group(metadata_filename) or {}
+        metadata_path = metadata_group.get(metadata_filename)
+        always_compile = os.environ.get("TRITON_ALWAYS_COMPILE", "0") == "1"
+        if not always_compile and metadata_path is not None:
+            # cache hit!
+            metadata = json.loads(Path(metadata_path).read_text())
+            return CompiledKernel(src, metadata_group, hash)
+        compile_speed_opt = os.getenv("TRITON_ASCEND_COMPILE_SPEED_OPT", 'false').lower() in ('true', '1')
+        if (compile_speed_opt):
+            ttir_path = f"{file_name}.ttir"
+            if (metadata_path is None) and (fn_cache_manager.has_file(ttir_path)):
+                # Already compile once but failed. So directly return
+                raise Exception("already failed once")
+        # initialize metadata
+        metadata = {
+            "hash": hash,
+            "target": target,
+            **options.__dict__,
+            **env_vars,
+        }
+        # run compilation pipeline  and populate metadata
+        stages = dict()
+        backend.add_stages(stages, options)
+        first_stage = list(stages.keys()).index(src.ext)
+        # when the source is an IR file, don't apply the passes related to this stage. This makes it easier to write IR level tests.
+        if ir_source:
+            first_stage += 1
+        context = ir.context()
+        ir.load_dialects(context)
+        backend.load_dialects(context)
+        codegen_fns = backend.get_codegen_implementation()
+        module_map = backend.get_module_map()
+        try:
+            module = src.make_ir(options, codegen_fns, module_map, context)
+        except Exception as e:
+            filter_traceback(e)
+            raise
+        use_ir_loc = os.environ.get("USE_IR_LOC", None)
+        for ext, compile_ir in list(stages.items())[first_stage:]:
+            try:
+                next_module = compile_ir(module, metadata)
+            except Exception as e:
+                if (ext == "ttadapter"):
+                    stage_name = "ConvertTritonIRToLinalgIR"
+                elif (ext == "npubin"):
+                    stage_name = "ConvertLinalgRToBinary"
+                else:
+                    stage_name = "MLIRCompile"
+                error_detail = e.stderr.decode('utf-8') if hasattr(e, 'stderr') and e.stderr else str(e)
+>               raise MLIRCompilationError(stage_name, error_detail)
+E               triton.compiler.errors.MLIRCompilationError: 
+E               ///------------------[ERROR][Triton][BEG]------------------
+E               [ConvertLinalgRToBinary] encounters error:
+E               PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+E               Stack dump:
+E               0.	Program arguments: /home/coder/Ascend/ascend-toolkit/latest/bin/bishengir-compile /tmp/tmpt4griupt/kernel.ttadapter.mlir --enable-auto-multi-buffer=True --enable-hfusion-compile=true --enable-hivm-compile=true --enable-triton-kernel-compile=true -o /tmp/tmpt4griupt/kernel
+E               ///------------------[ERROR][Triton][END]------------------
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:297: MLIRCompilationError
+=========================== short test summary info ============================
+FAILED language/test_core.py::test_atomic_cas[1-None] - triton.compiler.error...
+FAILED language/test_core.py::test_atomic_cas[1-acquire] - triton.compiler.er...
+FAILED language/test_core.py::test_atomic_cas[1-release] - triton.compiler.er...
+FAILED language/test_core.py::test_atomic_cas[1-acq_rel] - triton.compiler.er...
+FAILED language/test_core.py::test_atomic_cas[1-relaxed] - triton.compiler.er...
+============================== 5 failed in 23.31s ==============================
