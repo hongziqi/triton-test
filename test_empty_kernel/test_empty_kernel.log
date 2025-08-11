@@ -1,0 +1,153 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: xdist-3.6.1
+collecting ... collected 12 items
+
+language/test_core.py::test_empty_kernel[int8] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[int16] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[int32] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[int64] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[uint8] [WARNING] Please DO NOT tune args ['num_warps']!
+FAILED
+language/test_core.py::test_empty_kernel[uint16] [WARNING] Please DO NOT tune args ['num_warps']!
+FAILED
+language/test_core.py::test_empty_kernel[uint32] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[uint64] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[float16] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[float32] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[float64] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+language/test_core.py::test_empty_kernel[bfloat16] [WARNING] Please DO NOT tune args ['num_warps']!
+PASSED
+
+=================================== FAILURES ===================================
+___________________________ test_empty_kernel[uint8] ___________________________
+
+dtype_x = 'uint8', device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_x", list(dtypes) + ["bfloat16"])
+    def test_empty_kernel(dtype_x, device):
+        SIZE = 128
+    
+        @triton.jit
+        def kernel(X, SIZE: tl.constexpr):
+            pass
+    
+        check_type_supported(dtype_x, device)
+        x = to_triton(numpy_random(SIZE, dtype_str=dtype_x), device=device, dst_type=dtype_x)
+>       kernel[(1, )](x, SIZE=SIZE, num_warps=4)
+
+language/test_core.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u8'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u8
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+__________________________ test_empty_kernel[uint16] ___________________________
+
+dtype_x = 'uint16', device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_x", list(dtypes) + ["bfloat16"])
+    def test_empty_kernel(dtype_x, device):
+        SIZE = 128
+    
+        @triton.jit
+        def kernel(X, SIZE: tl.constexpr):
+            pass
+    
+        check_type_supported(dtype_x, device)
+        x = to_triton(numpy_random(SIZE, dtype_str=dtype_x), device=device, dst_type=dtype_x)
+>       kernel[(1, )](x, SIZE=SIZE, num_warps=4)
+
+language/test_core.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u16'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u16
+
+../../miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+=========================== short test summary info ============================
+FAILED language/test_core.py::test_empty_kernel[uint8] - ValueError: Unsuppor...
+FAILED language/test_core.py::test_empty_kernel[uint16] - ValueError: Unsuppo...
+=================== 2 failed, 10 passed in 199.47s (0:03:19) ===================
