@@ -19,7 +19,7 @@ import triton
 import triton.language as tl
 from triton.language.extra import libdevice
 
-from triton._internal_testing import (
+from _internal_testing import (
     integral_dtypes,
     int_dtypes,
     uint_dtypes,
