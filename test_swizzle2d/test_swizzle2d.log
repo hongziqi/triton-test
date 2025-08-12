@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_standard.py::test_swizzle2d[5-7-3] PASSED
+
+=============================== warnings summary ===============================
+language/test_standard.py::test_swizzle2d[5-7-3]
+language/test_standard.py::test_swizzle2d[5-7-3]
+language/test_standard.py::test_swizzle2d[5-7-3]
+language/test_standard.py::test_swizzle2d[5-7-3]
+language/test_standard.py::test_swizzle2d[5-7-3]
+language/test_standard.py::test_swizzle2d[5-7-3]
+  /home/coder/miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:706: DeprecationWarning: Conversion of an array with ndim > 0 to a scalar is deprecated, and will error in future. Ensure you extract a single element from your array before performing this operation. (Deprecated NumPy 1.25.)
+    tensor.__index__ = lambda self: int(self.handle.data)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 1 passed, 6 warnings in 17.86s ========================
