@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_compile_errors.py::test_power_of_two_shapes_2 FAILED
+
+=================================== FAILURES ===================================
+__________________________ test_power_of_two_shapes_2 __________________________
+
+    def test_power_of_two_shapes_2():
+    
+        @triton.jit
+        def kernel():
+            tl.full((33, ), 0, dtype=tl.int64)
+    
+>       with pytest.raises(CompilationError) as e:
+E       Failed: DID NOT RAISE <class 'triton.compiler.errors.CompilationError'>
+
+language/test_compile_errors.py:256: Failed
+=========================== short test summary info ============================
+FAILED language/test_compile_errors.py::test_power_of_two_shapes_2 - Failed: ...
+============================== 1 failed in 12.46s ==============================
