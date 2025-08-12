@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 6 items
+
+language/test_line_info.py::test_line_info_interpreter[single] PASSED
+language/test_line_info.py::test_line_info_interpreter[call] PASSED
+language/test_line_info.py::test_line_info_interpreter[call_noinline] PASSED
+language/test_line_info.py::test_line_info_interpreter[autotune] PASSED
+language/test_line_info.py::test_line_info_interpreter[dot_combine] PASSED
+language/test_line_info.py::test_line_info_interpreter[cdiv] PASSED
+
+============================== 6 passed in 9.12s ===============================
