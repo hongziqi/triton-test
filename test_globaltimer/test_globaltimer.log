@@ -1,0 +1,88 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_core.py::test_globaltimer FAILED
+
+=================================== FAILURES ===================================
+_______________________________ test_globaltimer _______________________________
+
+device = 'npu'
+
+    def test_globaltimer(device):
+        # if is_hip():
+        #     pytest.skip("test_globaltimer is not supported in HIP")
+        # check_cuda_or_hip(device)
+    
+        @triton.jit
+        def kernel(Out1, Out2):
+            start = tl.extra.cuda.globaltimer()
+            off = tl.arange(0, 128)
+            for i in range(10000):
+                tl.store(Out1 + off, tl.load(Out1 + off) + 1)
+            end = tl.extra.cuda.globaltimer()
+            tl.store(Out2, end - start)
+    
+        out1 = to_triton(np.zeros((128, ), dtype=np.int64), device=device)
+        out2 = to_triton(np.zeros((1, ), dtype=np.int64), device=device)
+>       h = kernel[(1, )](out1, out2)
+
+language/test_core.py:5143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:233: in compile
+    key = f"{triton_key()}-{src.hash()}-{backend.hash()}-{options.hash()}-{str(sorted(env_vars.items()))}"
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:98: in hash
+    key = f"{self.fn.cache_key}-{self.attrs.hash()}-{sorted_sig}-{sorted_constants}"
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:740: in cache_key
+    dependencies_finder.visit(self.parse())
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:426: in generic_visit
+    self.visit(item)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:149: in visit_FunctionDef
+    self.generic_visit(node)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:426: in generic_visit
+    self.visit(item)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:203: in visit_Assign
+    self.generic_visit(node)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:428: in generic_visit
+    self.visit(value)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:428: in generic_visit
+    self.visit(value)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:137: in visit_Attribute
+    lhs = self.visit(node.value)
+../../miniconda/envs/origin-triton/lib/python3.10/ast.py:418: in visit
+    return visitor(node)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <triton.runtime.jit.DependenciesFinder object at 0xfffdba05ae90>
+node = <ast.Attribute object at 0xfffdba05b790>
+
+    def visit_Attribute(self, node):
+        lhs = self.visit(node.value)
+        while isinstance(lhs, ast.Attribute):
+            lhs = self.visit(lhs.value)
+        if lhs is None or (getattr(lhs, "__name__", "") == TRITON_MODULE):
+            return None
+>       ret = getattr(lhs, node.attr)
+E       AttributeError: module 'triton.language.extra' has no attribute 'cuda'
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:142: AttributeError
+=========================== short test summary info ============================
+FAILED language/test_core.py::test_globaltimer - AttributeError: module 'trit...
+============================== 1 failed in 23.15s ==============================
