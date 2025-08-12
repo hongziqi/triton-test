@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 2 items
+
+language/test_core.py::test_call[1-inline] [WARNING] Please DO NOT tune args ['num_ctas']!
+Dumping intermediate results to /home/coder/.triton/dump/hETjnal7_u6eDalVSPF1lv6ZFYfX3HAty0s_g0NLPkc
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/BudYL_XoRuuzje5cEajivd9zuvnSrqKoxFVBabnc56U
+PASSED
+language/test_core.py::test_call[1-noinline] [WARNING] Please DO NOT tune args ['num_ctas']!
+PASSED
+
+============================== 2 passed in 41.39s ==============================
