@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 1 item
+
+language/test_core.py::test_dtype_codegen PASSED
+
+============================== 1 passed in 7.41s ===============================
