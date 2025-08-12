@@ -1,0 +1,597 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 24 items
+
+language/test_core.py::test_addptr[int8-0] Dumping intermediate results to /home/coder/.triton/dump/a12pDyndb5kw6ZDj0lJO01vZGUQRdFCLID1F4G5v4A4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eUAyfCx0qxTkIXDXgXyposVPKw787VEQAHed7rAUsQo
+PASSED
+language/test_core.py::test_addptr[int8-1] Dumping intermediate results to /home/coder/.triton/dump/zIkIFZ0ODHJO6nBenM6GqJ_PixyS-uFlAQ1tRvN6dDE
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eUAyfCx0qxTkIXDXgXyposVPKw787VEQAHed7rAUsQo
+PASSED
+language/test_core.py::test_addptr[int16-0] Dumping intermediate results to /home/coder/.triton/dump/51zBeTO2nNobEQ-WYjfvCsq4rDI1bbZl-GYmyGpsZIg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/Qlp4mSRrCMYbtjp-xkTnfeWVJFNHlG2vIX3_pj2W25o
+PASSED
+language/test_core.py::test_addptr[int16-1] Dumping intermediate results to /home/coder/.triton/dump/fS56zgRSmmCs_iy4TD8SKeIhrwEMjFNY8ecB7msSEjw
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/Qlp4mSRrCMYbtjp-xkTnfeWVJFNHlG2vIX3_pj2W25o
+PASSED
+language/test_core.py::test_addptr[int32-0] Dumping intermediate results to /home/coder/.triton/dump/ZqLLfxKcwdw_YdLuPAHWKs2U_clZjgR5DFmG2UUXQcY
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_addptr[int32-1] Dumping intermediate results to /home/coder/.triton/dump/axV9v-rbiGyxCW7SSs5up1LpJhigdUGg7jlhfbaTgVM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_addptr[int64-0] Dumping intermediate results to /home/coder/.triton/dump/rJKgB49Z0ny7JhNVFrFNjHSxzZqeGsIMN1yPIwwf5AY
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/7LDy0Qe2jOTOG7dkiwia2sUR2Xj9WowcWM5ZdAufeTs
+PASSED
+language/test_core.py::test_addptr[int64-1] Dumping intermediate results to /home/coder/.triton/dump/mP696ARuIiOOoKwTY-GpghyOzN7BX37q-9lhj87nwS8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/7LDy0Qe2jOTOG7dkiwia2sUR2Xj9WowcWM5ZdAufeTs
+PASSED
+language/test_core.py::test_addptr[uint8-0] Dumping intermediate results to /home/coder/.triton/dump/9k4FiiZi2l9YLSOEzctY8bqctlhFWM9tNZnZViaIteA
+FAILED
+language/test_core.py::test_addptr[uint8-1] Dumping intermediate results to /home/coder/.triton/dump/cJPApG0sPZYRPmfoETZf0TY8KGAcCjBskKt81tzqkYU
+FAILED
+language/test_core.py::test_addptr[uint16-0] Dumping intermediate results to /home/coder/.triton/dump/FL-81EH1Y96PHRBB6hOMzxhEuFwgXtjUyDStmq7E3SM
+FAILED
+language/test_core.py::test_addptr[uint16-1] Dumping intermediate results to /home/coder/.triton/dump/c4Neen1fqxBFclAHrwtn_h9Gj9q_-Kx7gFzNFVs9pMI
+FAILED
+language/test_core.py::test_addptr[uint32-0] Dumping intermediate results to /home/coder/.triton/dump/dVbLc5vHVlkn7DRevbyOzUXPJmsMlv0dy03ZlIEIlPg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/8zbtHNpK5SXZYLk4Xz0Z0pzQGCT4yiaYARhYHSWz2JM
+PASSED
+language/test_core.py::test_addptr[uint32-1] Dumping intermediate results to /home/coder/.triton/dump/lGGCJ-Zf_c71Bz0OyR95QT-Al52cDlh9plqW2LLGMAQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/8zbtHNpK5SXZYLk4Xz0Z0pzQGCT4yiaYARhYHSWz2JM
+PASSED
+language/test_core.py::test_addptr[uint64-0] Dumping intermediate results to /home/coder/.triton/dump/6AFL7nhRyF9wDWHs7Kln2qZygvMdkOKsIG3j0e5gaHY
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/NiKKgiwggy8HLuX7Y1Tv46J1z_tNaWm3g8bbA8k5U-Q
+PASSED
+language/test_core.py::test_addptr[uint64-1] Dumping intermediate results to /home/coder/.triton/dump/6QRvf86qcrwBVuQh57Yi_ZVojilsA-R-iBWGktL5Llw
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/NiKKgiwggy8HLuX7Y1Tv46J1z_tNaWm3g8bbA8k5U-Q
+PASSED
+language/test_core.py::test_addptr[float16-0] Dumping intermediate results to /home/coder/.triton/dump/l9Lh32KZtDMhEouGmjPIbvPynSHhvJldT7mPTWn_G4c
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/LtGZa9rqtgp58aH6ZizK2E2FRn_C_3o7ITZRhgfURcU
+PASSED
+language/test_core.py::test_addptr[float16-1] Dumping intermediate results to /home/coder/.triton/dump/-IX8YvCJln9mKrBNUtJNL2dIoCzTYcf8QJUmgz-glNk
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/LtGZa9rqtgp58aH6ZizK2E2FRn_C_3o7ITZRhgfURcU
+PASSED
+language/test_core.py::test_addptr[float32-0] Dumping intermediate results to /home/coder/.triton/dump/Hy4l8afmoPHaVfQzq3bxrYjd7IRPFxIs0RIdLH1i_KQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+PASSED
+language/test_core.py::test_addptr[float32-1] Dumping intermediate results to /home/coder/.triton/dump/92r71BYaaPGLabyrO3gNT3e6p1ZUJ8OtT3cV14fxNnQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/eswZdm4CxOouxeH7JPHkkXoTIyjKJP5kqnxC4h1u9ts
+PASSED
+language/test_core.py::test_addptr[float64-0] FAILED
+language/test_core.py::test_addptr[float64-1] FAILED
+language/test_core.py::test_addptr[bfloat16-0] Dumping intermediate results to /home/coder/.triton/dump/xt2rUvuhKG3JucBjYAJqhJHw8UaX610XWeJSUHs28LA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/7xwXjNCUf4U3yeTMfUvzoh0RKQt6Bp3Avh7YWVBoHFI
+PASSED
+language/test_core.py::test_addptr[bfloat16-1] Dumping intermediate results to /home/coder/.triton/dump/A8ll7SbhCg9_4Be1JQL0g6sN4sx_f0yPKE9XMxjjG1I
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/7xwXjNCUf4U3yeTMfUvzoh0RKQt6Bp3Avh7YWVBoHFI
+PASSED
+
+=================================== FAILURES ===================================
+_____________________________ test_addptr[uint8-0] _____________________________
+
+dtype = 'uint8', order = 0, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
+    def test_addptr(dtype, order, device):
+        # check_type_supported(dtype, device)
+    
+        @triton.jit
+        def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+            offs = tl.arange(0, SIZE)
+            if ORDER == 0:
+                tl.store(y + offs, tl.load(x + offs))
+            else:
+                tl.store(offs + y, tl.load(offs + x))
+    
+        SIZE = 1024
+        rs = RandomState(17)
+        x = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        y = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        x_tri = to_triton(x, dst_type=dtype, device=device)
+        y_tri = to_triton(y, dst_type=dtype, device=device)
+        y = x
+>       kernel[
+            1,
+        ](x_tri, y_tri, order, SIZE)
+
+language/test_core.py:493: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u8'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u8
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+_____________________________ test_addptr[uint8-1] _____________________________
+
+dtype = 'uint8', order = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
+    def test_addptr(dtype, order, device):
+        # check_type_supported(dtype, device)
+    
+        @triton.jit
+        def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+            offs = tl.arange(0, SIZE)
+            if ORDER == 0:
+                tl.store(y + offs, tl.load(x + offs))
+            else:
+                tl.store(offs + y, tl.load(offs + x))
+    
+        SIZE = 1024
+        rs = RandomState(17)
+        x = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        y = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        x_tri = to_triton(x, dst_type=dtype, device=device)
+        y_tri = to_triton(y, dst_type=dtype, device=device)
+        y = x
+>       kernel[
+            1,
+        ](x_tri, y_tri, order, SIZE)
+
+language/test_core.py:493: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u8'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u8
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+____________________________ test_addptr[uint16-0] _____________________________
+
+dtype = 'uint16', order = 0, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
+    def test_addptr(dtype, order, device):
+        # check_type_supported(dtype, device)
+    
+        @triton.jit
+        def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+            offs = tl.arange(0, SIZE)
+            if ORDER == 0:
+                tl.store(y + offs, tl.load(x + offs))
+            else:
+                tl.store(offs + y, tl.load(offs + x))
+    
+        SIZE = 1024
+        rs = RandomState(17)
+        x = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        y = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        x_tri = to_triton(x, dst_type=dtype, device=device)
+        y_tri = to_triton(y, dst_type=dtype, device=device)
+        y = x
+>       kernel[
+            1,
+        ](x_tri, y_tri, order, SIZE)
+
+language/test_core.py:493: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u16'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u16
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+____________________________ test_addptr[uint16-1] _____________________________
+
+dtype = 'uint16', order = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
+    def test_addptr(dtype, order, device):
+        # check_type_supported(dtype, device)
+    
+        @triton.jit
+        def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+            offs = tl.arange(0, SIZE)
+            if ORDER == 0:
+                tl.store(y + offs, tl.load(x + offs))
+            else:
+                tl.store(offs + y, tl.load(offs + x))
+    
+        SIZE = 1024
+        rs = RandomState(17)
+        x = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        y = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        x_tri = to_triton(x, dst_type=dtype, device=device)
+        y_tri = to_triton(y, dst_type=dtype, device=device)
+        y = x
+>       kernel[
+            1,
+        ](x_tri, y_tri, order, SIZE)
+
+language/test_core.py:493: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:670: in run
+    kernel._init_handles()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:401: in _init_handles
+    self.run = driver.active.launcher_cls(self.src, self.metadata)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:79: in __init__
+    wrapper_src = generate_npu_wrapper_src(constants, signature, \
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:469: in generate_npu_wrapper_src
+    {LINE_CHANGE_CHAR.join(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/driver.py:470: in <genexpr>
+    f'dataTypes[{i}] = {convert_sigtype_to_int(ty[1:])};'
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+sigty = 'u16'
+
+    def convert_sigtype_to_int(sigty: str):
+        MAP_SIGTYPE_TO_INT = {
+            # Boolean
+            "i1": 12,  # BOOL
+            # Integer types
+            "i8": 2,  # INT8
+            "i16": 6,  # INT16
+            "i32": 3,  # INT32
+            "i64": 9,  # INT64
+            # Unsigned integer types
+            "u32": 8,  # UINT32
+            "u64": 10,  # UINT64
+            # Floating point types
+            "fp16": 1,  # FLOAT16
+            "bf16": 27,  # DT_BF16
+            "fp32": 0,  # FLOAT
+            "fp64": 11,  # DOUBLE
+        }
+        if sigty not in MAP_SIGTYPE_TO_INT:
+>           raise ValueError(f"Unsupported data type: {sigty}")
+E           ValueError: Unsupported data type: u16
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/backends/ascend/utils.py:287: ValueError
+____________________________ test_addptr[float64-0] ____________________________
+
+args = (<triton.language.core.tensor object at 0xfffdabe47ca0>,)
+kwargs = {'_builder': <triton._C.libtriton.ir.builder object at 0xffff7d952e80>}
+
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if "_builder" not in kwargs or kwargs["_builder"] is None:
+            print(kwargs)
+            raise ValueError("Did you forget to add @triton.jit ? "
+                             "(`_builder` argument must be provided outside of JIT functions.)")
+>       return fn(*args, **kwargs)
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/language/core.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/language/core.py:1635: in load
+    return semantic.load(pointer, mask, other, boundary_check, padding_option, cache_modifier, eviction_policy,
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/language/semantic.py:1141: in load
+    return _load_legacy(ptr, mask, other, boundary_check, padding, cache, eviction, is_volatile, builder)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:416: in _load_legacy
+    other = cast(other, elt_ty, builder)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = <triton.language.core.tensor object at 0xfffdabe47850>
+dst_ty = <[1024], fp64>
+builder = <triton._C.libtriton.ir.builder object at 0xffff7d952e80>
+fp_downcast_rounding = None
+
+    def cast(input: tl.tensor, dst_ty: tl.dtype, builder: ir.builder,
+             fp_downcast_rounding: Optional[str] = None) -> tl.tensor:
+        src_ty = input.type
+        if isinstance(dst_ty, tl.constexpr):
+            dst_ty = dst_ty.value
+        if isinstance(fp_downcast_rounding, tl.constexpr):
+            fp_downcast_rounding = fp_downcast_rounding.value
+        if src_ty.is_block():
+            dst_ty = tl.block_type(dst_ty.scalar, input.type.get_block_shapes())
+        if src_ty == dst_ty:
+            return input
+    
+        src_sca_ty = src_ty.scalar
+        dst_sca_ty = dst_ty.scalar
+    
+        # For fp downcasting default rounding mode should be RTNE, for all other conversions it should
+        # not be set
+        fp_downcast_rounding = _str_to_rounding_mode(fp_downcast_rounding)
+        use_custom_rounding = False
+        if dst_sca_ty.is_floating() and src_sca_ty.is_floating(
+        ) and dst_sca_ty.primitive_bitwidth < src_sca_ty.primitive_bitwidth:
+            if fp_downcast_rounding is None: fp_downcast_rounding = ir.ROUNDING_MODE.RTNE
+            elif fp_downcast_rounding != ir.ROUNDING_MODE.RTNE: use_custom_rounding = True
+        else:
+            if fp_downcast_rounding is not None:
+                raise ValueError("fp_downcast_rounding should be set only for truncating fp conversions. "
+                                 "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+    
+        if (src_sca_ty.is_fp8() or dst_sca_ty.is_fp8()) or (src_sca_ty.is_fp64() or dst_sca_ty.is_fp64()):
+>           raise ValueError("[fp8, fp64] is unsupported on Ascend for now."
+                             "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+E           ValueError: [fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:57: ValueError
+
+The above exception was the direct cause of the following exception:
+
+dtype = 'float64', order = 0, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
+    def test_addptr(dtype, order, device):
+        # check_type_supported(dtype, device)
+    
+        @triton.jit
+        def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+            offs = tl.arange(0, SIZE)
+            if ORDER == 0:
+                tl.store(y + offs, tl.load(x + offs))
+            else:
+                tl.store(offs + y, tl.load(offs + x))
+    
+        SIZE = 1024
+        rs = RandomState(17)
+        x = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        y = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        x_tri = to_triton(x, dst_type=dtype, device=device)
+        y_tri = to_triton(y, dst_type=dtype, device=device)
+        y = x
+>       kernel[
+            1,
+        ](x_tri, y_tri, order, SIZE)
+
+language/test_core.py:493: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:281: in compile
+    module = src.make_ir(options, codegen_fns, module_map, context)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <triton.compiler.compiler.ASTSource object at 0xfffdabe459f0>
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+codegen_fns = {'min_dot_size': <function min_dot_size.<locals>.<lambda> at 0xfffdac1609d0>}
+module_map = {}
+context = <triton._C.libtriton.ir.context object at 0xffff8188ff70>
+
+    def make_ir(self, options, codegen_fns, module_map, context):
+>       return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
+                           module_map=module_map)
+E       triton.compiler.errors.CompilationError: at 4:27:
+E       def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+E           offs = tl.arange(0, SIZE)
+E           if ORDER == 0:
+E               tl.store(y + offs, tl.load(x + offs))
+E                                  ^
+E       ValueError('[fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64')
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:102: CompilationError
+____________________________ test_addptr[float64-1] ____________________________
+
+args = (<triton.language.core.tensor object at 0xfffdabe51720>,)
+kwargs = {'_builder': <triton._C.libtriton.ir.builder object at 0xfffdadd10310>}
+
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if "_builder" not in kwargs or kwargs["_builder"] is None:
+            print(kwargs)
+            raise ValueError("Did you forget to add @triton.jit ? "
+                             "(`_builder` argument must be provided outside of JIT functions.)")
+>       return fn(*args, **kwargs)
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/language/core.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/language/core.py:1635: in load
+    return semantic.load(pointer, mask, other, boundary_check, padding_option, cache_modifier, eviction_policy,
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/language/semantic.py:1141: in load
+    return _load_legacy(ptr, mask, other, boundary_check, padding, cache, eviction, is_volatile, builder)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:416: in _load_legacy
+    other = cast(other, elt_ty, builder)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = <triton.language.core.tensor object at 0xfffdabe50070>
+dst_ty = <[1024], fp64>
+builder = <triton._C.libtriton.ir.builder object at 0xfffdadd10310>
+fp_downcast_rounding = None
+
+    def cast(input: tl.tensor, dst_ty: tl.dtype, builder: ir.builder,
+             fp_downcast_rounding: Optional[str] = None) -> tl.tensor:
+        src_ty = input.type
+        if isinstance(dst_ty, tl.constexpr):
+            dst_ty = dst_ty.value
+        if isinstance(fp_downcast_rounding, tl.constexpr):
+            fp_downcast_rounding = fp_downcast_rounding.value
+        if src_ty.is_block():
+            dst_ty = tl.block_type(dst_ty.scalar, input.type.get_block_shapes())
+        if src_ty == dst_ty:
+            return input
+    
+        src_sca_ty = src_ty.scalar
+        dst_sca_ty = dst_ty.scalar
+    
+        # For fp downcasting default rounding mode should be RTNE, for all other conversions it should
+        # not be set
+        fp_downcast_rounding = _str_to_rounding_mode(fp_downcast_rounding)
+        use_custom_rounding = False
+        if dst_sca_ty.is_floating() and src_sca_ty.is_floating(
+        ) and dst_sca_ty.primitive_bitwidth < src_sca_ty.primitive_bitwidth:
+            if fp_downcast_rounding is None: fp_downcast_rounding = ir.ROUNDING_MODE.RTNE
+            elif fp_downcast_rounding != ir.ROUNDING_MODE.RTNE: use_custom_rounding = True
+        else:
+            if fp_downcast_rounding is not None:
+                raise ValueError("fp_downcast_rounding should be set only for truncating fp conversions. "
+                                 "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+    
+        if (src_sca_ty.is_fp8() or dst_sca_ty.is_fp8()) or (src_sca_ty.is_fp64() or dst_sca_ty.is_fp64()):
+>           raise ValueError("[fp8, fp64] is unsupported on Ascend for now."
+                             "Source scalar type is " + str(src_sca_ty) + " and destination type is " + str(dst_sca_ty))
+E           ValueError: [fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/triton_patch/language/semantic.py:57: ValueError
+
+The above exception was the direct cause of the following exception:
+
+dtype = 'float64', order = 1, device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
+    def test_addptr(dtype, order, device):
+        # check_type_supported(dtype, device)
+    
+        @triton.jit
+        def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+            offs = tl.arange(0, SIZE)
+            if ORDER == 0:
+                tl.store(y + offs, tl.load(x + offs))
+            else:
+                tl.store(offs + y, tl.load(offs + x))
+    
+        SIZE = 1024
+        rs = RandomState(17)
+        x = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        y = numpy_random(SIZE, dtype_str=dtype, rs=rs)
+        x_tri = to_triton(x, dst_type=dtype, device=device)
+        y_tri = to_triton(y, dst_type=dtype, device=device)
+        y = x
+>       kernel[
+            1,
+        ](x_tri, y_tri, order, SIZE)
+
+language/test_core.py:493: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:635: in run
+    kernel = self.compile(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:281: in compile
+    module = src.make_ir(options, codegen_fns, module_map, context)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <triton.compiler.compiler.ASTSource object at 0xfffdabe52230>
+options = NPUOptions(debug=True, sanitize_overflow=True, llvm_version=15, kernel_name='triton_', cluster_dims=(1, 1, 1), num_war...input_precisions=('ieee', 'hf32'), max_num_imprecise_acc_default=None, extern_libs=None, multibuffer=True, stream=None)
+codegen_fns = {'min_dot_size': <function min_dot_size.<locals>.<lambda> at 0xfffdac34d240>}
+module_map = {}
+context = <triton._C.libtriton.ir.context object at 0xfffdac212b70>
+
+    def make_ir(self, options, codegen_fns, module_map, context):
+>       return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,
+                           module_map=module_map)
+E       triton.compiler.errors.CompilationError: at 6:27:
+E       def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
+E           offs = tl.arange(0, SIZE)
+E           if ORDER == 0:
+E               tl.store(y + offs, tl.load(x + offs))
+E           else:
+E               tl.store(offs + y, tl.load(offs + x))
+E                                  ^
+E       ValueError('[fp8, fp64] is unsupported on Ascend for now.Source scalar type is int32 and destination type is fp64')
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/compiler/compiler.py:102: CompilationError
+=========================== short test summary info ============================
+FAILED language/test_core.py::test_addptr[uint8-0] - ValueError: Unsupported ...
+FAILED language/test_core.py::test_addptr[uint8-1] - ValueError: Unsupported ...
+FAILED language/test_core.py::test_addptr[uint16-0] - ValueError: Unsupported...
+FAILED language/test_core.py::test_addptr[uint16-1] - ValueError: Unsupported...
+FAILED language/test_core.py::test_addptr[float64-0] - triton.compiler.errors...
+FAILED language/test_core.py::test_addptr[float64-1] - triton.compiler.errors...
+=================== 6 failed, 18 passed in 348.55s (0:05:48) ===================
