@@ -473,7 +473,7 @@ def test_bin_op(dtype_x, dtype_y, op, num_ctas, device):
 @pytest.mark.interpreter
 @pytest.mark.parametrize("dtype, order", [(dtype, order) for dtype in dtypes_with_bfloat16 for order in [0, 1]])
 def test_addptr(dtype, order, device):
-    check_type_supported(dtype, device)
+    # check_type_supported(dtype, device)
 
     @triton.jit
     def kernel(x, y, ORDER: tl.constexpr, SIZE: tl.constexpr):
@@ -625,7 +625,7 @@ def test_compare_op(dtype_x, dtype_y, op, mode_x, mode_y, num_ctas, device):
 @pytest.mark.interpreter
 @pytest.mark.parametrize("dtype", dtypes_with_bfloat16)
 def test_broadcast(dtype, device):
-    check_type_supported(dtype, device)
+    # check_type_supported(dtype, device)
 
     @triton.jit
     def broadcast_kernel(x_ptr, y_ptr, y_broadcasted_ptr, M: tl.constexpr, N: tl.constexpr):
@@ -5125,9 +5125,9 @@ def test_num_threads(device):
 
 
 def test_globaltimer(device):
-    if is_hip():
-        pytest.skip("test_globaltimer is not supported in HIP")
-    check_cuda_or_hip(device)
+    # if is_hip():
+    #     pytest.skip("test_globaltimer is not supported in HIP")
+    # check_cuda_or_hip(device)
 
     @triton.jit
     def kernel(Out1, Out2):
