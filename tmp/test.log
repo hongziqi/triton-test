@@ -1,0 +1,53 @@
+(triton) coder@candy-npu-fa-test:~/fa-test/test1$ python 06-fuse-attention.py
+Traceback (most recent call last):
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py", line 288, in compile
+    next_module = compile_ir(module, metadata)
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py", line 466, in <lambda>
+    stages["ttadapter"] = lambda src, metadata: ttir_to_linalg(
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/compiler.py", line 87, in ttir_to_linalg
+    ret = subprocess.run(cmd_list, capture_output=True, check=True)
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/triton-adapter-opt', '/tmp/tmp467uctfp/kernel.ttir.mlir', '--triton-to-annotation', '--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False', '-o', '/tmp/tmp467uctfp/kernel.ttadapter.mlir']' died with <Signals.SIGABRT: 6>.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/coder/fa-test/test1/06-fuse-attention.py", line 677, in <module>
+    bench_flash_attention.run(save_path=".", print_data=True)
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/testing.py", line 464, in run
+    result_dfs.append(self._run(bench, save_path, show_plots, print_data, **kwargs))
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/testing.py", line 407, in _run
+    ret = self.fn(**x_args, **{bench.line_arg: y}, **bench.args, **kwrags)
+  File "/home/coder/fa-test/test1/06-fuse-attention.py", line 656, in bench_flash_attention
+    ms = triton.testing.do_bench(fn)
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/testing.py", line 119, in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/testing.py", line 211, in do_bench_npu
+    fn()
+  File "/home/coder/fa-test/test1/06-fuse-attention.py", line 651, in <lambda>
+    fn = lambda: attention(q, k, v, causal, sm_scale)
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/torch/autograd/function.py", line 575, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/home/coder/fa-test/test1/06-fuse-attention.py", line 461, in forward
+    _attn_fwd[grid](
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py", line 331, in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/autotuner.py", line 243, in run
+    ret = self.fn.run(
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/runtime/jit.py", line 635, in run
+    kernel = self.compile(
+  File "/home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/compiler/compiler.py", line 297, in compile
+    raise MLIRCompilationError(stage_name, error_detail)
+triton.compiler.errors.MLIRCompilationError: 
+///------------------[ERROR][Triton][BEG]------------------
+[ConvertTritonIRToLinalgIR] encounters error:
+/home/coder/fa-test/test1/06-fuse-attention.py:145:8: error: Currently only support default order on block pointers
+        order=(0, 1),
+       ^
+/home/coder/fa-test/test1/06-fuse-attention.py:145:8: note: see current operation: %76 = "tt.make_tensor_ptr"(%74, %34, %51, %33, %75, %32, %32) <{order = array<i32: 0, 1>}> : (!tt.ptr<f16>, i64, i64, i64, i64, i32, i32) -> !tt.ptr<tensor<64x32xf16>>
+triton-adapter-opt: /home/coder/origin/llvm-project/llvm/include/llvm/Support/Casting.h:650: decltype(auto) llvm::dyn_cast(const From &) [To = mlir::MemRefType, From = mlir::BaseMemRefType]: Assertion `detail::isPresent(Val) && "dyn_cast on a non-existent value"' failed.
+PLEASE submit a bug report to https://github.com/llvm/llvm-project/issues/ and include the crash backtrace.
+Stack dump:
+0.      Program arguments: /home/coder/miniconda/envs/triton/lib/python3.10/site-packages/triton/backends/ascend/triton-adapter-opt /tmp/tmp467uctfp/kernel.ttir.mlir --triton-to-annotation "--triton-to-linalg=global-kernel=false named-ops=True enable-nd2nz-on-vector=False" -o /tmp/tmp467uctfp/kernel.ttadapter.mlir
+///------------------[ERROR][Triton][END]------------------
