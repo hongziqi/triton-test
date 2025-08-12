@@ -1,0 +1,2171 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 96 items
+
+language/test_core.py::test_trans_4d[perm0-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/AhYsGwwLTX19QZ9SSbB_TW9y20EFXg_xiFE61C7wYzs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm0-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm0-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/I1oL8rGe2jZcDhSHc6KPhEdnp8BQTWqXoOIm7UqmXnA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm0-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm1-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/ou6LrV3YJIurbInxoRI__TThXjcnZBKDGQUQOT35AC8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm1-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm1-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/fRTX2FWMiBVn561tdWFuOPb81KIGmCtuSu4aCIH60R0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm1-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm2-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/fp49wMSrJfVVJ-AqY55m2JAJtWA887rUegeaBzNd3N4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm2-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm2-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/14L3iAuBGluqtKAIcCRY05YApVDEnC7CjEX4R8okE8o
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm2-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm3-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/B5o05FrP1TLYevvEa19Ds_Eb3ADH5UPB079ls7-rUJQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm3-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm3-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/Ox85i5rrdcFGaW6o0VzOXqAjOqgi0RF1ErXPQVTexA4
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm3-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm4-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/TVLoEsj6dD0Wubmlp5ZMrRp7gmEqlcw_xlyEw-ClPP0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm4-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm4-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/oStF3-XkpAhNFZJrBnFrKCsAq6t85uZ73jbELiRkitM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm4-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm5-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/ycI5ws43ld7slJhTHiKxYnZijeB50N3_CMVHmM6N6rU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm5-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm5-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/sxBUUqqSX2JYgFvhfBho0Wfh8vxlvlpEllz3YrH6pQc
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm5-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm6-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/ejp9z4_fo8kitu2JiTe3duVk-17--Zohbq0NbY4VGH8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm6-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm6-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/JpWZPnNlWTJzQDnU1XiI3dNB9wKb4EmDNXXIDbgyG1w
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm6-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm7-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/qvPDEQt5J5ujaMAR2Oyb_iFdbnz3Y7Q5TLudHMfncnM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm7-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm7-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/YBre3OEt_fkCOpzWUlzEEBCzINL-W_0_3PrPk9zVRYs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm7-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm8-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/TnkbgprOda44YVHTQDZvBhesXT9wO7rv6Gmbs3faLJU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm8-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm8-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/8zMl5Cr0xFdc62_K_NrxmGmeV8odekbh-lu0KCRioJo
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm8-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm9-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/R606M0PScb0vo5QIGyqJxniSYNovEoOjdaq3L1UBt9k
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm9-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm9-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/2y1LNeb7e3ii9m4Aghx3KDbo18KOA6mSdFJ7QBqxFxY
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm9-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm10-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/J4FwnxqkbPVsZQQKxbwpg3Jo4U8t5nZAwa0pdE34gsY
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm10-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm10-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/0WFhhy1uBZ2jNoYAsh7Hg21A2OqKg2wkc3wauLMmaEI
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm10-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm11-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/1GV7sPwd47iThflQAkl2eiybQcg_2UGo56B5WstvB2s
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm11-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm11-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/XKiYtagVtgNUSnBEonM3jl0N9vpK5edJJ1jT_oDS91U
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm11-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm12-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/y2G5QGJxkaXOoqWpKUAOQTE5lXjbV6boMLDH9xSDvZU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm12-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm12-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/v-rhcGDrf_a8F6ozsVGIK_49jEZ4TuF0MbNEIQtu704
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm12-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm13-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/XMjx645JWquXWW8A-DwKHuHjJ7dqEdltKdmcqZ3pJyU
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm13-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm13-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/i8QcNBlblGTIsWsSTPllYEN5E8oo8VdJeo0mdGvoh4k
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm13-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm14-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/X5tgRhD9bpi5oM8WWmMncNJbZE6AAZF4o8HsrNbfzwc
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm14-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm14-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/ptbn3EVG7jD3SIYCiLraoVBEBRggOMNw1lPsXgw_1w0
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm14-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm15-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/oJe3yk3Zygv9n6prtfM2D_06YCWkE9ttR7dEYyxLb90
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm15-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm15-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/wPgJKHNVQablxUDIWnMuVKGqYkbTbWoJ-jWo4PNmhg8
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm15-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm16-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/0ZR_AtUcabBqlbuA0Yiorz49YsIPOk-D4GPY1_SZ1is
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm16-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm16-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/yE4EVtwYXxPsNekZak7qigH9NN17jwYHKXzkdLIeZbc
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm16-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm17-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/f4y3HE08LoqU168WMmXPkBMhIeLSASFQyD7TOmF8esQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm17-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm17-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/Kx-jtmFBaNUr3e_oc2yfzGCiMfvPX4DzqlkQ5SEHqBI
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm17-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm18-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/H9kdNLAVhyDwvCU56w1JGfRTC0M3yx4eaOd8Vc20TAw
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm18-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm18-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/OApx55h3S3sln8-oSPVNQwBxxvY6Jw234spwskD2mBM
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm18-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm19-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/_fSqBC4FGBnv8S2YuJj1_oCFfF71dWqulhm6Zb30Egg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm19-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm19-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/bmjH-CLJBrgGKPsfbWRcWV1fk8CPgRtDYhaJJjJlLkc
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm19-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm20-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/lLJDpwIIfCeCYVVTigUAODWGYhNgpvyNqAjLIRz7O94
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm20-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm20-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/XDyHrpgebqDWvwNN9qivJ4t0mX7VMeQc8zp_AXOtEFg
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm20-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm21-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/VFlwJrsx425rYgerjyXyxehonWIqd0DmNaX0N1S8YQs
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm21-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm21-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/BXswHoa0MzhDSgjYjlHDdtSiQmMH2WLgmn8LF8IWRfE
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm21-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm22-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/jAwABkLOh-_nSUbklizxyGggmDPtNsUwncYh4CG2yCI
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm22-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm22-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/qdeFlelWI7AjoUa953cuQ3ffbjAUiiJcAJbDCxUotXA
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm22-shape1-int8] FAILED
+language/test_core.py::test_trans_4d[perm23-shape0-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/rsNZETgvrAgIl6vy7G76aHNUJ8GJh8u-3_XgwwSwLGQ
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm23-shape0-int8] FAILED
+language/test_core.py::test_trans_4d[perm23-shape1-int32] [WARNING] Please DO NOT tune args ['num_warps']!
+Dumping intermediate results to /home/coder/.triton/dump/yqzZnxFCgTH22mVsnfNRRuPvkCkGOCJS9O58x6Da4Ag
+Dumping launcher_cxx11abi1.cxx to /home/coder/.triton/dump/DiIFu1emWxbexv2VJygAIoY2dE7M0h1x-tDoe6gH2dQ
+PASSED
+language/test_core.py::test_trans_4d[perm23-shape1-int8] FAILED
+
+=================================== FAILURES ===================================
+_______________________ test_trans_4d[perm0-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (0, 1, 2, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:13:11.530.458 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:13:11 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm0-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (0, 1, 2, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:13:29.437.691 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:13:29 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm1-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (0, 1, 3, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:13:47.370.826 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:13:47 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm1-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (0, 1, 3, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:14:05.178.959 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:14:05 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm2-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (0, 2, 1, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:14:22.513.113 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:14:22 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm2-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (0, 2, 1, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:14:40.392.902 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:14:40 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm3-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (0, 2, 3, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:14:58.278.830 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:14:58 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm3-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (0, 2, 3, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:15:18.493.971 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:15:18 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm4-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (0, 3, 1, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:15:37.179.354 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:15:37 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm4-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (0, 3, 1, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:15:54.875.532 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:15:54 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm5-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (0, 3, 2, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:16:12.856.138 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:16:12 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm5-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (0, 3, 2, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:16:30.988.547 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:16:30 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm6-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (1, 0, 2, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:16:48.236.754 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:16:48 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm6-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (1, 0, 2, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:17:06.654.276 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:17:06 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm7-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (1, 0, 3, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:17:25.130.472 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:17:25 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm7-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (1, 0, 3, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:17:42.726.478 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:17:42 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm8-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (1, 2, 0, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:18:00.960.807 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:18:00 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm8-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (1, 2, 0, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:18:18.532.137 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:18:18 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm9-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (1, 2, 3, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:18:36.480.458 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:18:36 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+_______________________ test_trans_4d[perm9-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (1, 2, 3, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:18:54.029.976 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:18:54 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm10-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (1, 3, 0, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:19:12.282.883 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:19:12 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm10-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (1, 3, 0, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:19:29.943.793 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:19:29 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm11-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (1, 3, 2, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:19:47.978.797 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:19:47 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm11-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (1, 3, 2, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:20:06.426.874 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:20:06 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm12-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (2, 0, 1, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:20:26.165.416 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:20:26 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm12-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (2, 0, 1, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:20:44.506.102 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:20:44 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm13-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (2, 0, 3, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:21:02.827.085 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:21:02 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm13-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (2, 0, 3, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:21:20.857.950 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:21:20 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm14-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (2, 1, 0, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:21:38.797.347 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:21:38 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm14-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (2, 1, 0, 3), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:21:56.683.143 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:21:56 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm15-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (2, 1, 3, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:22:14.435.822 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:22:14 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm15-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (2, 1, 3, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:22:32.447.366 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:22:32 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm16-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (2, 3, 0, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:22:50.232.563 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:22:50 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm16-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (2, 3, 0, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:23:08.824.718 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:23:08 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm17-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (2, 3, 1, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:23:26.657.436 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:23:26 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm17-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (2, 3, 1, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:23:44.538.895 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:23:44 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm18-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (3, 0, 1, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:24:02.487.946 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:24:02 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm18-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (3, 0, 1, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:24:20.303.093 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:24:20 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm19-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (3, 0, 2, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:24:37.794.956 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:24:37 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm19-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (3, 0, 2, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:24:56.327.747 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:24:56 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm20-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (3, 1, 0, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:25:15.756.077 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:25:15 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm20-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (3, 1, 0, 2), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:25:35.687.034 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:25:35 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm21-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (3, 1, 2, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:25:53.650.906 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:25:53 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm21-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (3, 1, 2, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:26:11.374.780 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:26:11 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm22-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (3, 2, 0, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:26:28.924.790 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:26:28 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm22-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (3, 2, 0, 1), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:26:47.011.881 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:26:47 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm23-shape0-int8] _______________________
+
+dtype_str = 'int8', shape = (2, 2, 8, 64), perm = (3, 2, 1, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:27:04.585.121 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:27:04 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+______________________ test_trans_4d[perm23-shape1-int8] _______________________
+
+dtype_str = 'int8', shape = (4, 4, 4, 4), perm = (3, 2, 1, 0), device = 'npu'
+
+    @pytest.mark.interpreter
+    @pytest.mark.parametrize("dtype_str", ["int32", "int8"])
+    @pytest.mark.parametrize("shape", [(2, 2, 8, 64), (4, 4, 4, 4)])
+    @pytest.mark.parametrize("perm", list(itertools.permutations([0, 1, 2, 3])))
+    def test_trans_4d(dtype_str, shape, perm, device):
+    
+        @triton.jit
+        def kernel(In, Out,  #
+                   in_shape1: tl.constexpr, in_shape2: tl.constexpr, in_shape3: tl.constexpr, in_shape4: tl.constexpr,
+                   ou_shape1: tl.constexpr, ou_shape2: tl.constexpr, ou_shape3: tl.constexpr, ou_shape4: tl.constexpr,
+                   trans1: tl.constexpr, trans2: tl.constexpr, trans3: tl.constexpr, trans4: tl.constexpr):
+            in_ptr = tl.make_block_ptr(
+                base=In,
+                shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                strides=(in_shape4 * in_shape3 * in_shape2, in_shape4 * in_shape3, in_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(in_shape1, in_shape2, in_shape3, in_shape4),
+                order=(3, 2, 1, 0),
+            )
+            out_ptr = tl.make_block_ptr(
+                base=Out,
+                shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                strides=(ou_shape4 * ou_shape3 * ou_shape2, ou_shape4 * ou_shape3, ou_shape4, 1),
+                offsets=(0, 0, 0, 0),
+                block_shape=(ou_shape1, ou_shape2, ou_shape3, ou_shape4),
+                order=(3, 2, 1, 0),
+            )
+            tl.store(out_ptr, tl.load(in_ptr).permute((trans1, trans2, trans3, trans4)))
+    
+>       input = torch.arange(math.prod(shape), dtype=getattr(torch, dtype_str), device=device).reshape(shape)
+E       RuntimeError: call aclnnArange failed, detail:EZ1001: [PID: 4030722] 2025-08-12-02:27:22.162.344 Tensor out not implemented for DT_INT8, should be in dtype support list [DT_FLOAT16,DT_FLOAT,DT_DOUBLE,DT_INT64,DT_INT32,DT_BFLOAT16,].
+E       
+E       [ERROR] 2025-08-12-02:27:22 (PID:4030722, Device:0, RankID:-1) ERR01100 OPS call acl api failed
+
+language/test_core.py:3075: RuntimeError
+=========================== short test summary info ============================
+FAILED language/test_core.py::test_trans_4d[perm0-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm0-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm1-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm1-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm2-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm2-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm3-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm3-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm4-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm4-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm5-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm5-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm6-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm6-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm7-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm7-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm8-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm8-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm9-shape0-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm9-shape1-int8] - RuntimeError...
+FAILED language/test_core.py::test_trans_4d[perm10-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm10-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm11-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm11-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm12-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm12-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm13-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm13-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm14-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm14-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm15-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm15-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm16-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm16-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm17-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm17-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm18-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm18-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm19-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm19-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm20-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm20-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm21-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm21-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm22-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm22-shape1-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm23-shape0-int8] - RuntimeErro...
+FAILED language/test_core.py::test_trans_4d[perm23-shape1-int8] - RuntimeErro...
+================== 48 failed, 48 passed in 883.75s (0:14:43) ===================
