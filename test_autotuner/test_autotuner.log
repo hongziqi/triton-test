@@ -1,0 +1,691 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.18, pytest-8.3.2, pluggy-1.6.0 -- /home/coder/miniconda/envs/origin-triton/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/coder/workspace/triton-test
+plugins: anyio-4.9.0, xdist-3.6.1
+collecting ... collected 7 items
+
+runtime/test_autotuner.py::test_kwargs[False] FAILED
+runtime/test_autotuner.py::test_kwargs[True] FAILED
+runtime/test_autotuner.py::test_restore[False] FAILED
+runtime/test_autotuner.py::test_restore[True] FAILED
+runtime/test_autotuner.py::test_hooks FAILED
+runtime/test_autotuner.py::test_prune_configs[False] FAILED
+runtime/test_autotuner.py::test_prune_configs[True] FAILED
+
+=================================== FAILURES ===================================
+______________________________ test_kwargs[False] ______________________________
+
+use_cuda_graph = False, device = 'npu'
+
+    @pytest.mark.parametrize('use_cuda_graph', [False, True])
+    def test_kwargs(use_cuda_graph: bool, device: str):
+        M, N = 1024, 16
+        src = torch.randn(M * N, device=device)
+        dst = torch.empty(M * N, device=device)
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE_M': 32}), triton.Config(kwargs={'BLOCK_SIZE_M': 128})]
+    
+        @triton.autotune(configs=configs, key=['M'], warmup=1, rep=1, use_cuda_graph=use_cuda_graph, do_bench=do_bench)
+        @triton.jit
+        def _kernel(dst, src, stride_m: tl.constexpr, M, BLOCK_SIZE_N: tl.constexpr, BLOCK_SIZE_M: tl.constexpr):
+            offsets_m = tl.program_id(0) * stride_m + tl.arange(0, BLOCK_SIZE_M)
+            offsets_n = tl.arange(0, BLOCK_SIZE_N)
+            x = tl.load(src + offsets_m[:, None] * BLOCK_SIZE_N + offsets_n[None, :])
+            tl.store(dst + offsets_m[:, None] * BLOCK_SIZE_N + offsets_n[None, :], x)
+    
+        grid = lambda META: (triton.cdiv(N, META['BLOCK_SIZE_M']), )
+>       _kernel[grid](dst, src, N, M, N)
+
+runtime/test_autotuner.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:123: in <lambda>
+    self.do_bench = lambda kernel_call, quantiles: triton.testing.do_bench(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:119: in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:211: in do_bench_npu
+    fn()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:154: in kernel_call
+    self.fn.run(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1209: in run
+    return GridExecutor(fn, self.arg_names, grid)(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1090: in __call__
+    args = inspect.getcallargs(self.fn, *args_hst, **kwargs_hst)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+func = <function _kernel at 0xfffeabf0fa30>
+positional = (tensor([5.7397e-42, 0.0000e+00, 0.0000e+00,  ..., 0.0000e+00, 0.0000e+00,
+        0.0000e+00]), tensor([-1.9194,  0.0415, -2.7393,  ...,  0.1923,  0.6188,  0.8999]), 16, 1024, 16)
+named = {'BLOCK_SIZE_M': 32, 'num_buffers_warp_spec': 0, 'num_consumer_groups': 0, 'reg_dec_producer': 0, ...}
+spec = FullArgSpec(args=['dst', 'src', 'stride_m', 'M', 'BLOCK_SIZE_N', 'BLOCK_SIZE_M'], varargs=None, varkw=None, defaults=N...>, 'BLOCK_SIZE_N': <class 'triton.language.core.constexpr'>, 'BLOCK_SIZE_M': <class 'triton.language.core.constexpr'>})
+args = ['dst', 'src', 'stride_m', 'M', 'BLOCK_SIZE_N', 'BLOCK_SIZE_M']
+varargs = None, varkw = None, defaults = None, kwonlyargs = []
+kwonlydefaults = None
+ann = {'BLOCK_SIZE_M': <class 'triton.language.core.constexpr'>, 'BLOCK_SIZE_N': <class 'triton.language.core.constexpr'>, 'stride_m': <class 'triton.language.core.constexpr'>}
+f_name = '_kernel'
+arg2value = {'BLOCK_SIZE_M': 32, 'BLOCK_SIZE_N': 16, 'M': 1024, 'dst': tensor([5.7397e-42, 0.0000e+00, 0.0000e+00,  ..., 0.0000e+00, 0.0000e+00,
+        0.0000e+00]), ...}
+
+    def getcallargs(func, /, *positional, **named):
+        """Get the mapping of arguments to values.
+    
+        A dict is returned, with keys the function argument names (including the
+        names of the * and ** arguments, if any), and values the respective bound
+        values from 'positional' and 'named'."""
+        spec = getfullargspec(func)
+        args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, ann = spec
+        f_name = func.__name__
+        arg2value = {}
+    
+    
+        if ismethod(func) and func.__self__ is not None:
+            # implicit 'self' (or 'cls' for classmethods) argument
+            positional = (func.__self__,) + positional
+        num_pos = len(positional)
+        num_args = len(args)
+        num_defaults = len(defaults) if defaults else 0
+    
+        n = min(num_pos, num_args)
+        for i in range(n):
+            arg2value[args[i]] = positional[i]
+        if varargs:
+            arg2value[varargs] = tuple(positional[n:])
+        possible_kwargs = set(args + kwonlyargs)
+        if varkw:
+            arg2value[varkw] = {}
+        for kw, value in named.items():
+            if kw not in possible_kwargs:
+                if not varkw:
+>                   raise TypeError("%s() got an unexpected keyword argument %r" %
+                                    (f_name, kw))
+E                   TypeError: _kernel() got an unexpected keyword argument 'num_buffers_warp_spec'
+
+../../miniconda/envs/origin-triton/lib/python3.10/inspect.py:1517: TypeError
+______________________________ test_kwargs[True] _______________________________
+
+use_cuda_graph = True, device = 'npu'
+
+    @pytest.mark.parametrize('use_cuda_graph', [False, True])
+    def test_kwargs(use_cuda_graph: bool, device: str):
+        M, N = 1024, 16
+        src = torch.randn(M * N, device=device)
+        dst = torch.empty(M * N, device=device)
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE_M': 32}), triton.Config(kwargs={'BLOCK_SIZE_M': 128})]
+    
+        @triton.autotune(configs=configs, key=['M'], warmup=1, rep=1, use_cuda_graph=use_cuda_graph, do_bench=do_bench)
+        @triton.jit
+        def _kernel(dst, src, stride_m: tl.constexpr, M, BLOCK_SIZE_N: tl.constexpr, BLOCK_SIZE_M: tl.constexpr):
+            offsets_m = tl.program_id(0) * stride_m + tl.arange(0, BLOCK_SIZE_M)
+            offsets_n = tl.arange(0, BLOCK_SIZE_N)
+            x = tl.load(src + offsets_m[:, None] * BLOCK_SIZE_N + offsets_n[None, :])
+            tl.store(dst + offsets_m[:, None] * BLOCK_SIZE_N + offsets_n[None, :], x)
+    
+        grid = lambda META: (triton.cdiv(N, META['BLOCK_SIZE_M']), )
+>       _kernel[grid](dst, src, N, M, N)
+
+runtime/test_autotuner.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:115: in <lambda>
+    self.do_bench = lambda kernel_call, quantiles: do_bench_cudagraph(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:50: in do_bench_cudagraph
+    with torch.cuda.stream(torch.cuda.Stream()):
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/torch/cuda/streams.py:34: in __new__
+    return super().__new__(cls, priority=priority, **kwargs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+obj = <class 'torch.cuda.streams.Stream'>, args = (), kwargs = {'priority': 0}
+class_name = 'Stream'
+
+    def err_fn(obj, *args, **kwargs):
+        if is_init:
+            class_name = obj.__class__.__name__
+        else:
+            class_name = obj.__name__
+>       raise RuntimeError(f"Tried to instantiate dummy base class {class_name}")
+E       RuntimeError: Tried to instantiate dummy base class Stream
+
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/torch/_utils.py:960: RuntimeError
+_____________________________ test_restore[False] ______________________________
+
+pass_kwargs_to_kernel = False, device = 'npu'
+
+    @pytest.mark.parametrize('pass_kwargs_to_kernel', [False, True])
+    def test_restore(pass_kwargs_to_kernel, device):
+        N = 1024
+        src = torch.zeros(N, device=device)
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE': 32}), triton.Config(kwargs={'BLOCK_SIZE': 128})]
+    
+        @triton.autotune(configs=configs, key=['N'], restore_value=['src'], do_bench=do_bench)
+        @triton.jit
+        def _kernel(src, N, BLOCK_SIZE: tl.constexpr):
+            offsets = tl.program_id(0) * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+            x = tl.load(src + offsets, mask=offsets < N) + 1
+            tl.store(src + offsets, x, mask=offsets < N)
+    
+        grid = lambda META: (triton.cdiv(N, META['BLOCK_SIZE']), )
+        if pass_kwargs_to_kernel:
+            _kernel[grid](src=src, N=N)
+        else:
+>           _kernel[grid](src, N)
+
+runtime/test_autotuner.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+runtime/test_autotuner.py:9: in do_bench
+    return triton.testing.do_bench(kernel_call, quantiles=quantiles, warmup=1, rep=1)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:119: in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:211: in do_bench_npu
+    fn()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:154: in kernel_call
+    self.fn.run(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1209: in run
+    return GridExecutor(fn, self.arg_names, grid)(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1090: in __call__
+    args = inspect.getcallargs(self.fn, *args_hst, **kwargs_hst)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+func = <function _kernel at 0xfffea6667640>
+positional = (tensor([0., 0., 0.,  ..., 0., 0., 0.]), 1024)
+named = {'BLOCK_SIZE': 32, 'num_buffers_warp_spec': 0, 'num_consumer_groups': 0, 'reg_dec_producer': 0, ...}
+spec = FullArgSpec(args=['src', 'N', 'BLOCK_SIZE'], varargs=None, varkw=None, defaults=None, kwonlyargs=[], kwonlydefaults=None, annotations={'BLOCK_SIZE': <class 'triton.language.core.constexpr'>})
+args = ['src', 'N', 'BLOCK_SIZE'], varargs = None, varkw = None, defaults = None
+kwonlyargs = [], kwonlydefaults = None
+ann = {'BLOCK_SIZE': <class 'triton.language.core.constexpr'>}
+f_name = '_kernel'
+arg2value = {'BLOCK_SIZE': 32, 'N': 1024, 'src': tensor([0., 0., 0.,  ..., 0., 0., 0.])}
+
+    def getcallargs(func, /, *positional, **named):
+        """Get the mapping of arguments to values.
+    
+        A dict is returned, with keys the function argument names (including the
+        names of the * and ** arguments, if any), and values the respective bound
+        values from 'positional' and 'named'."""
+        spec = getfullargspec(func)
+        args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, ann = spec
+        f_name = func.__name__
+        arg2value = {}
+    
+    
+        if ismethod(func) and func.__self__ is not None:
+            # implicit 'self' (or 'cls' for classmethods) argument
+            positional = (func.__self__,) + positional
+        num_pos = len(positional)
+        num_args = len(args)
+        num_defaults = len(defaults) if defaults else 0
+    
+        n = min(num_pos, num_args)
+        for i in range(n):
+            arg2value[args[i]] = positional[i]
+        if varargs:
+            arg2value[varargs] = tuple(positional[n:])
+        possible_kwargs = set(args + kwonlyargs)
+        if varkw:
+            arg2value[varkw] = {}
+        for kw, value in named.items():
+            if kw not in possible_kwargs:
+                if not varkw:
+>                   raise TypeError("%s() got an unexpected keyword argument %r" %
+                                    (f_name, kw))
+E                   TypeError: _kernel() got an unexpected keyword argument 'num_buffers_warp_spec'
+
+../../miniconda/envs/origin-triton/lib/python3.10/inspect.py:1517: TypeError
+______________________________ test_restore[True] ______________________________
+
+pass_kwargs_to_kernel = True, device = 'npu'
+
+    @pytest.mark.parametrize('pass_kwargs_to_kernel', [False, True])
+    def test_restore(pass_kwargs_to_kernel, device):
+        N = 1024
+        src = torch.zeros(N, device=device)
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE': 32}), triton.Config(kwargs={'BLOCK_SIZE': 128})]
+    
+        @triton.autotune(configs=configs, key=['N'], restore_value=['src'], do_bench=do_bench)
+        @triton.jit
+        def _kernel(src, N, BLOCK_SIZE: tl.constexpr):
+            offsets = tl.program_id(0) * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+            x = tl.load(src + offsets, mask=offsets < N) + 1
+            tl.store(src + offsets, x, mask=offsets < N)
+    
+        grid = lambda META: (triton.cdiv(N, META['BLOCK_SIZE']), )
+        if pass_kwargs_to_kernel:
+>           _kernel[grid](src=src, N=N)
+
+runtime/test_autotuner.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+runtime/test_autotuner.py:9: in do_bench
+    return triton.testing.do_bench(kernel_call, quantiles=quantiles, warmup=1, rep=1)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:119: in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:211: in do_bench_npu
+    fn()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:154: in kernel_call
+    self.fn.run(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1209: in run
+    return GridExecutor(fn, self.arg_names, grid)(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1090: in __call__
+    args = inspect.getcallargs(self.fn, *args_hst, **kwargs_hst)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+func = <function _kernel at 0xfffea91d89d0>, positional = ()
+named = {'BLOCK_SIZE': 32, 'N': 1024, 'num_buffers_warp_spec': 0, 'num_consumer_groups': 0, ...}
+spec = FullArgSpec(args=['src', 'N', 'BLOCK_SIZE'], varargs=None, varkw=None, defaults=None, kwonlyargs=[], kwonlydefaults=None, annotations={'BLOCK_SIZE': <class 'triton.language.core.constexpr'>})
+args = ['src', 'N', 'BLOCK_SIZE'], varargs = None, varkw = None, defaults = None
+kwonlyargs = [], kwonlydefaults = None
+ann = {'BLOCK_SIZE': <class 'triton.language.core.constexpr'>}
+f_name = '_kernel'
+arg2value = {'BLOCK_SIZE': 32, 'N': 1024, 'src': tensor([0., 0., 0.,  ..., 0., 0., 0.])}
+
+    def getcallargs(func, /, *positional, **named):
+        """Get the mapping of arguments to values.
+    
+        A dict is returned, with keys the function argument names (including the
+        names of the * and ** arguments, if any), and values the respective bound
+        values from 'positional' and 'named'."""
+        spec = getfullargspec(func)
+        args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, ann = spec
+        f_name = func.__name__
+        arg2value = {}
+    
+    
+        if ismethod(func) and func.__self__ is not None:
+            # implicit 'self' (or 'cls' for classmethods) argument
+            positional = (func.__self__,) + positional
+        num_pos = len(positional)
+        num_args = len(args)
+        num_defaults = len(defaults) if defaults else 0
+    
+        n = min(num_pos, num_args)
+        for i in range(n):
+            arg2value[args[i]] = positional[i]
+        if varargs:
+            arg2value[varargs] = tuple(positional[n:])
+        possible_kwargs = set(args + kwonlyargs)
+        if varkw:
+            arg2value[varkw] = {}
+        for kw, value in named.items():
+            if kw not in possible_kwargs:
+                if not varkw:
+>                   raise TypeError("%s() got an unexpected keyword argument %r" %
+                                    (f_name, kw))
+E                   TypeError: _kernel() got an unexpected keyword argument 'num_buffers_warp_spec'
+
+../../miniconda/envs/origin-triton/lib/python3.10/inspect.py:1517: TypeError
+__________________________________ test_hooks __________________________________
+
+device = 'npu'
+
+    def test_hooks(device):
+        # Autotuner's pre- and post- hooks should be called the same number of times
+        N = 4096
+        src = torch.zeros(N, device=device)
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE': 4096}), triton.Config(kwargs={'BLOCK_SIZE': 32})]
+    
+        values = {"counter": 0, "has_exception": False}
+    
+        def _pre_hook(*args, **kwargs):
+            values["counter"] += 1
+    
+        def _post_hook(*args, exception):
+            values["counter"] -= 1
+            if exception is not None:
+                values["has_exception"] = True
+            assert values["counter"] == 0
+    
+        @triton.autotune(configs=configs, key=['N'], do_bench=do_bench, pre_hook=_pre_hook, post_hook=_post_hook)
+        @triton.heuristics({"N_STAGES": lambda nargs: 100 if nargs['N'] == 4096 else 4})
+        @triton.jit
+        def _kernel(src, N, N_STAGES: tl.constexpr, BLOCK_SIZE: tl.constexpr):
+            offsets = tl.arange(0, BLOCK_SIZE)
+            max_iters = tl.cdiv(N, BLOCK_SIZE)
+            for _ in tl.range(max_iters, num_stages=N_STAGES):
+                x = tl.load(src + offsets, mask=offsets < N)
+                tl.store(src + offsets, x, mask=offsets < N)
+                offsets += BLOCK_SIZE
+    
+>       _kernel[(1, )](src, N)
+
+runtime/test_autotuner.py:86: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+runtime/test_autotuner.py:9: in do_bench
+    return triton.testing.do_bench(kernel_call, quantiles=quantiles, warmup=1, rep=1)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:119: in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:211: in do_bench_npu
+    fn()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:154: in kernel_call
+    self.fn.run(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:437: in run
+    return self.fn.run(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1209: in run
+    return GridExecutor(fn, self.arg_names, grid)(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1090: in __call__
+    args = inspect.getcallargs(self.fn, *args_hst, **kwargs_hst)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+func = <function _kernel at 0xfffea91d8af0>
+positional = (tensor([0., 0., 0.,  ..., 0., 0., 0.]), 4096)
+named = {'BLOCK_SIZE': 4096, 'N_STAGES': 100, 'num_buffers_warp_spec': 0, 'num_consumer_groups': 0, ...}
+spec = FullArgSpec(args=['src', 'N', 'N_STAGES', 'BLOCK_SIZE'], varargs=None, varkw=None, defaults=None, kwonlyargs=[], kwonl...tations={'N_STAGES': <class 'triton.language.core.constexpr'>, 'BLOCK_SIZE': <class 'triton.language.core.constexpr'>})
+args = ['src', 'N', 'N_STAGES', 'BLOCK_SIZE'], varargs = None, varkw = None
+defaults = None, kwonlyargs = [], kwonlydefaults = None
+ann = {'BLOCK_SIZE': <class 'triton.language.core.constexpr'>, 'N_STAGES': <class 'triton.language.core.constexpr'>}
+f_name = '_kernel'
+arg2value = {'BLOCK_SIZE': 4096, 'N': 4096, 'src': tensor([0., 0., 0.,  ..., 0., 0., 0.])}
+
+    def getcallargs(func, /, *positional, **named):
+        """Get the mapping of arguments to values.
+    
+        A dict is returned, with keys the function argument names (including the
+        names of the * and ** arguments, if any), and values the respective bound
+        values from 'positional' and 'named'."""
+        spec = getfullargspec(func)
+        args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, ann = spec
+        f_name = func.__name__
+        arg2value = {}
+    
+    
+        if ismethod(func) and func.__self__ is not None:
+            # implicit 'self' (or 'cls' for classmethods) argument
+            positional = (func.__self__,) + positional
+        num_pos = len(positional)
+        num_args = len(args)
+        num_defaults = len(defaults) if defaults else 0
+    
+        n = min(num_pos, num_args)
+        for i in range(n):
+            arg2value[args[i]] = positional[i]
+        if varargs:
+            arg2value[varargs] = tuple(positional[n:])
+        possible_kwargs = set(args + kwonlyargs)
+        if varkw:
+            arg2value[varkw] = {}
+        for kw, value in named.items():
+            if kw not in possible_kwargs:
+                if not varkw:
+>                   raise TypeError("%s() got an unexpected keyword argument %r" %
+                                    (f_name, kw))
+E                   TypeError: _kernel() got an unexpected keyword argument 'num_buffers_warp_spec'
+
+../../miniconda/envs/origin-triton/lib/python3.10/inspect.py:1517: TypeError
+__________________________ test_prune_configs[False] ___________________________
+
+with_perf_model = False, device = 'npu'
+
+    @pytest.mark.parametrize('with_perf_model', [False, True])
+    def test_prune_configs(with_perf_model: bool, device: str):
+        N = 1024
+        src = torch.randn(N, device=device)
+        dst = torch.empty(N, device=device)
+        records = {}
+    
+        def early_config_prune(configs, named_args, **kwargs):
+            records['run_early_config_prune'] = True
+            if "N" in kwargs and kwargs["N"] == 1024:
+                records['capture_kwargs'] = True
+            if "dst" in named_args and "src" in named_args and len(named_args) == 2:
+                records['capture_named_args'] = True
+            return [configs[0]]
+    
+        def perf_model(*args, **kwargs):
+            records['run_perf_model'] = True
+            return kwargs['BLOCK_SIZE']
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE': 32}), triton.Config(kwargs={'BLOCK_SIZE': 128})]
+    
+        if with_perf_model:
+            prune_configs_by = {'perf_model': perf_model, 'top_k': 1}
+        else:
+            prune_configs_by = {'early_config_prune': early_config_prune}
+    
+        @triton.autotune(configs=configs, key=['N'], prune_configs_by=prune_configs_by, do_bench=do_bench)
+        @triton.jit
+        def _kernel(dst, src, N, BLOCK_SIZE: tl.constexpr):
+            offsets = tl.program_id(0) * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+            x = tl.load(src + offsets, mask=offsets < N)
+            tl.store(dst + offsets, x, mask=offsets < N)
+    
+        grid = lambda META: (triton.cdiv(N, META['BLOCK_SIZE']), )
+>       _kernel[grid](dst, src, N=N)
+
+runtime/test_autotuner.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+runtime/test_autotuner.py:9: in do_bench
+    return triton.testing.do_bench(kernel_call, quantiles=quantiles, warmup=1, rep=1)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:119: in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:211: in do_bench_npu
+    fn()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:154: in kernel_call
+    self.fn.run(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1209: in run
+    return GridExecutor(fn, self.arg_names, grid)(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1090: in __call__
+    args = inspect.getcallargs(self.fn, *args_hst, **kwargs_hst)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+func = <function _kernel at 0xfffea91d9bd0>
+positional = (tensor([ 3.5873e-43,  0.0000e+00,  3.3631e-44,  ..., -1.6728e+00,
+        -1.5154e-01,  1.6086e+00]), tensor([ 0.0421,  1.2192, -1.9644,  ..., -0.3933, -0.5475,  1.2017]))
+named = {'BLOCK_SIZE': 32, 'N': 1024, 'num_buffers_warp_spec': 0, 'num_consumer_groups': 0, ...}
+spec = FullArgSpec(args=['dst', 'src', 'N', 'BLOCK_SIZE'], varargs=None, varkw=None, defaults=None, kwonlyargs=[], kwonlydefaults=None, annotations={'BLOCK_SIZE': <class 'triton.language.core.constexpr'>})
+args = ['dst', 'src', 'N', 'BLOCK_SIZE'], varargs = None, varkw = None
+defaults = None, kwonlyargs = [], kwonlydefaults = None
+ann = {'BLOCK_SIZE': <class 'triton.language.core.constexpr'>}
+f_name = '_kernel'
+arg2value = {'BLOCK_SIZE': 32, 'N': 1024, 'dst': tensor([ 3.5873e-43,  0.0000e+00,  3.3631e-44,  ..., -1.6728e+00,
+        -1.5154e-01,  1.6086e+00]), 'src': tensor([ 0.0421,  1.2192, -1.9644,  ..., -0.3933, -0.5475,  1.2017])}
+
+    def getcallargs(func, /, *positional, **named):
+        """Get the mapping of arguments to values.
+    
+        A dict is returned, with keys the function argument names (including the
+        names of the * and ** arguments, if any), and values the respective bound
+        values from 'positional' and 'named'."""
+        spec = getfullargspec(func)
+        args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, ann = spec
+        f_name = func.__name__
+        arg2value = {}
+    
+    
+        if ismethod(func) and func.__self__ is not None:
+            # implicit 'self' (or 'cls' for classmethods) argument
+            positional = (func.__self__,) + positional
+        num_pos = len(positional)
+        num_args = len(args)
+        num_defaults = len(defaults) if defaults else 0
+    
+        n = min(num_pos, num_args)
+        for i in range(n):
+            arg2value[args[i]] = positional[i]
+        if varargs:
+            arg2value[varargs] = tuple(positional[n:])
+        possible_kwargs = set(args + kwonlyargs)
+        if varkw:
+            arg2value[varkw] = {}
+        for kw, value in named.items():
+            if kw not in possible_kwargs:
+                if not varkw:
+>                   raise TypeError("%s() got an unexpected keyword argument %r" %
+                                    (f_name, kw))
+E                   TypeError: _kernel() got an unexpected keyword argument 'num_buffers_warp_spec'
+
+../../miniconda/envs/origin-triton/lib/python3.10/inspect.py:1517: TypeError
+___________________________ test_prune_configs[True] ___________________________
+
+with_perf_model = True, device = 'npu'
+
+    @pytest.mark.parametrize('with_perf_model', [False, True])
+    def test_prune_configs(with_perf_model: bool, device: str):
+        N = 1024
+        src = torch.randn(N, device=device)
+        dst = torch.empty(N, device=device)
+        records = {}
+    
+        def early_config_prune(configs, named_args, **kwargs):
+            records['run_early_config_prune'] = True
+            if "N" in kwargs and kwargs["N"] == 1024:
+                records['capture_kwargs'] = True
+            if "dst" in named_args and "src" in named_args and len(named_args) == 2:
+                records['capture_named_args'] = True
+            return [configs[0]]
+    
+        def perf_model(*args, **kwargs):
+            records['run_perf_model'] = True
+            return kwargs['BLOCK_SIZE']
+    
+        configs = [triton.Config(kwargs={'BLOCK_SIZE': 32}), triton.Config(kwargs={'BLOCK_SIZE': 128})]
+    
+        if with_perf_model:
+            prune_configs_by = {'perf_model': perf_model, 'top_k': 1}
+        else:
+            prune_configs_by = {'early_config_prune': early_config_prune}
+    
+        @triton.autotune(configs=configs, key=['N'], prune_configs_by=prune_configs_by, do_bench=do_bench)
+        @triton.jit
+        def _kernel(dst, src, N, BLOCK_SIZE: tl.constexpr):
+            offsets = tl.program_id(0) * BLOCK_SIZE + tl.arange(0, BLOCK_SIZE)
+            x = tl.load(src + offsets, mask=offsets < N)
+            tl.store(dst + offsets, x, mask=offsets < N)
+    
+        grid = lambda META: (triton.cdiv(N, META['BLOCK_SIZE']), )
+>       _kernel[grid](dst, src, N=N)
+
+runtime/test_autotuner.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/jit.py:331: in <lambda>
+    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in run
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:223: in <dictcomp>
+    timings = {config: self._bench(*args, config=config, **kwargs) for config in pruned_configs}
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:168: in _bench
+    return self.do_bench(kernel_call, quantiles=(0.5, 0.2, 0.8))
+runtime/test_autotuner.py:9: in do_bench
+    return triton.testing.do_bench(kernel_call, quantiles=quantiles, warmup=1, rep=1)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:119: in do_bench
+    avg_time = do_bench_npu(fn, warmup=max(5, warmup), active=max(30, rep))
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/testing.py:211: in do_bench_npu
+    fn()
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:154: in kernel_call
+    self.fn.run(
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1209: in run
+    return GridExecutor(fn, self.arg_names, grid)(*args, **kwargs)
+../../miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/interpreter.py:1090: in __call__
+    args = inspect.getcallargs(self.fn, *args_hst, **kwargs_hst)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+func = <function _kernel at 0xfffea91da9e0>
+positional = (tensor([3.5873e-43, 0.0000e+00, 5.0447e-44,  ..., 0.0000e+00, 0.0000e+00,
+        0.0000e+00]), tensor([ 0.8204,  0.0329,  1.1179,  ..., -1.1205,  0.6721,  0.3956]))
+named = {'BLOCK_SIZE': 32, 'N': 1024, 'num_buffers_warp_spec': 0, 'num_consumer_groups': 0, ...}
+spec = FullArgSpec(args=['dst', 'src', 'N', 'BLOCK_SIZE'], varargs=None, varkw=None, defaults=None, kwonlyargs=[], kwonlydefaults=None, annotations={'BLOCK_SIZE': <class 'triton.language.core.constexpr'>})
+args = ['dst', 'src', 'N', 'BLOCK_SIZE'], varargs = None, varkw = None
+defaults = None, kwonlyargs = [], kwonlydefaults = None
+ann = {'BLOCK_SIZE': <class 'triton.language.core.constexpr'>}
+f_name = '_kernel'
+arg2value = {'BLOCK_SIZE': 32, 'N': 1024, 'dst': tensor([3.5873e-43, 0.0000e+00, 5.0447e-44,  ..., 0.0000e+00, 0.0000e+00,
+        0.0000e+00]), 'src': tensor([ 0.8204,  0.0329,  1.1179,  ..., -1.1205,  0.6721,  0.3956])}
+
+    def getcallargs(func, /, *positional, **named):
+        """Get the mapping of arguments to values.
+    
+        A dict is returned, with keys the function argument names (including the
+        names of the * and ** arguments, if any), and values the respective bound
+        values from 'positional' and 'named'."""
+        spec = getfullargspec(func)
+        args, varargs, varkw, defaults, kwonlyargs, kwonlydefaults, ann = spec
+        f_name = func.__name__
+        arg2value = {}
+    
+    
+        if ismethod(func) and func.__self__ is not None:
+            # implicit 'self' (or 'cls' for classmethods) argument
+            positional = (func.__self__,) + positional
+        num_pos = len(positional)
+        num_args = len(args)
+        num_defaults = len(defaults) if defaults else 0
+    
+        n = min(num_pos, num_args)
+        for i in range(n):
+            arg2value[args[i]] = positional[i]
+        if varargs:
+            arg2value[varargs] = tuple(positional[n:])
+        possible_kwargs = set(args + kwonlyargs)
+        if varkw:
+            arg2value[varkw] = {}
+        for kw, value in named.items():
+            if kw not in possible_kwargs:
+                if not varkw:
+>                   raise TypeError("%s() got an unexpected keyword argument %r" %
+                                    (f_name, kw))
+E                   TypeError: _kernel() got an unexpected keyword argument 'num_buffers_warp_spec'
+
+../../miniconda/envs/origin-triton/lib/python3.10/inspect.py:1517: TypeError
+=============================== warnings summary ===============================
+runtime/test_autotuner.py::test_kwargs[False]
+runtime/test_autotuner.py::test_kwargs[True]
+  /home/coder/miniconda/envs/origin-triton/lib/python3.10/site-packages/triton/runtime/autotuner.py:110: DeprecationWarning: warmup, rep, and use_cuda_graph parameters are deprecated. See https://github.com/triton-lang/triton/pull/4496 for details.
+    warnings.warn(("warmup, rep, and use_cuda_graph parameters are deprecated. See "
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED runtime/test_autotuner.py::test_kwargs[False] - TypeError: _kernel() g...
+FAILED runtime/test_autotuner.py::test_kwargs[True] - RuntimeError: Tried to ...
+FAILED runtime/test_autotuner.py::test_restore[False] - TypeError: _kernel() ...
+FAILED runtime/test_autotuner.py::test_restore[True] - TypeError: _kernel() g...
+FAILED runtime/test_autotuner.py::test_hooks - TypeError: _kernel() got an un...
+FAILED runtime/test_autotuner.py::test_prune_configs[False] - TypeError: _ker...
+FAILED runtime/test_autotuner.py::test_prune_configs[True] - TypeError: _kern...
+======================== 7 failed, 2 warnings in 19.42s ========================
